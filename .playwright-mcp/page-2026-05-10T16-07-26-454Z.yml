@@ -1,0 +1,122 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - navigation [ref=e3]:
+      - link [ref=e4] [cursor=pointer]:
+        - /url: https://about.google/?fg=1&utm_source=google-DE&utm_medium=referral&utm_campaign=hp-header
+        - text: Über Google
+      - link [ref=e5] [cursor=pointer]:
+        - /url: https://store.google.com/DE?utm_source=hp_header&utm_medium=google_ooo&utm_campaign=GS100042&hl=de-DE
+        - text: Store
+      - generic [ref=e7]:
+        - generic [ref=e8]:
+          - link [ref=e10] [cursor=pointer]:
+            - /url: https://mail.google.com/mail/&ogbl
+            - text: Gmail
+          - link [ref=e12] [cursor=pointer]:
+            - /url: https://www.google.com/imghp?hl=de&ogbl
+            - text: Bilder
+        - button [ref=e15] [cursor=pointer]:
+          - img [ref=e16]
+        - link [ref=e20] [cursor=pointer]:
+          - /url: https://accounts.google.com/ServiceLogin?hl=de&passive=true&continue=https://www.google.com/&ec=futura_exp_og_so_72776762_e
+          - text: Anmelden
+    - generic [ref=e22]:
+      - link [ref=e23] [cursor=pointer]:
+        - /url: /search?sca_esv=17be50ec41e4a705&q=Das+heutige+Doodle+feiert+den+Muttertag!+Kennst+du+schon+diese+herzlichen,+selbstgemachten+Ideen,+um+%E2%80%9EIch+hab+dich+lieb%E2%80%9C+zu+sagen%3F&udm=50&oi=ddle&noiga=1&ct=503325029&peek_pws=0&aep=84&sa=X&ved=0ahUKEwj1rpqhja-UAxXtSfEDHUDaOd8QPQgE
+        - img [ref=e25]
+      - button [ref=e27]:
+        - img [ref=e32] [cursor=pointer]
+    - search [ref=e35]:
+      - generic [ref=e37]:
+        - generic [ref=e39]:
+          - button [ref=e41] [cursor=pointer]:
+            - img [ref=e43]
+          - combobox [ref=e46]
+          - generic [ref=e47]:
+            - generic [ref=e48]:
+              - button [ref=e49] [cursor=pointer]:
+                - img [ref=e50]
+              - button [ref=e52] [cursor=pointer]:
+                - img [ref=e53]
+            - link [ref=e55] [cursor=pointer]:
+              - generic [ref=e57]:
+                - img [ref=e59]
+                - generic [ref=e66]: KI‑Modus
+        - generic [ref=e68]:
+          - button [ref=e69] [cursor=pointer]: Google Suche
+          - button [ref=e70] [cursor=pointer]: Auf gut Glück!
+    - generic [ref=e73]:
+      - text: "Google gibt es auch auf:"
+      - link [ref=e74] [cursor=pointer]:
+        - /url: https://www.google.com/setprefs?sig=0_qhDnntxtv5E1na9ZkQ5jW3USmHI%3D&hl=en&source=homepage&sa=X&ved=0ahUKEwj1rpqhja-UAxXtSfEDHUDaOd8Q2ZgBCDM
+        - text: English
+    - contentinfo [ref=e76]:
+      - generic [ref=e77]: Deutschland
+      - generic [ref=e78]:
+        - generic [ref=e79]:
+          - link [ref=e80] [cursor=pointer]:
+            - /url: https://www.google.com/intl/de_de/ads/?subid=ww-ww-et-g-awa-a-g_hpafoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpafooter&fg=1
+            - text: Werbeprogramme
+          - link [ref=e81] [cursor=pointer]:
+            - /url: https://www.google.com/services/?subid=ww-ww-et-g-awa-a-g_hpbfoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpbfooter&fg=1
+            - text: Unternehmen
+          - link [ref=e82] [cursor=pointer]:
+            - /url: https://google.com/search/howsearchworks/?fg=1
+            - text: Wie funktioniert die Google Suche?
+        - link [ref=e84] [cursor=pointer]:
+          - /url: https://sustainability.google/intl/de/klimaschutz/?utm_source=googlehpfooter&utm_medium=housepromos&utm_campaign=bottom-footer&utm_content=
+          - text: "Drei Jahrzehnte Klimaschutz: Jede Entscheidung zählt"
+        - generic [ref=e85]:
+          - link [ref=e86] [cursor=pointer]:
+            - /url: https://policies.google.com/privacy?hl=de&fg=1
+            - text: Datenschutzerklärung
+          - link [ref=e87] [cursor=pointer]:
+            - /url: https://policies.google.com/terms?hl=de&fg=1
+            - text: Nutzungsbedingungen
+          - button [ref=e91] [cursor=pointer]:
+            - generic [ref=e92]: Einstellungen
+  - generic:
+    - dialog "Bevor Sie zur Google Suche weitergehen":
+      - generic [ref=e99]:
+        - generic [ref=e101]:
+          - img "Google" [ref=e102]
+          - generic [ref=e103]:
+            - 'button "Sprache: ‪Deutsch‬" [active] [ref=e105] [cursor=pointer]':
+              - generic [ref=e106]:
+                - img
+                - generic [ref=e107]: de
+            - link "Anmelden" [ref=e108] [cursor=pointer]
+        - generic [ref=e109]:
+          - heading "Bevor Sie zu Google weitergehen" [level=1] [ref=e110]
+          - generic [ref=e111]:
+            - generic [ref=e112]:
+              - text: Wir verwenden
+              - link "Cookies" [ref=e113] [cursor=pointer]:
+                - /url: https://policies.google.com/technologies/cookies?utm_source=ucbs&hl=de
+              - text: und Daten, um
+              - list [ref=e114]:
+                - listitem [ref=e115]: Google-Dienste zu erbringen und zu betreiben
+                - listitem [ref=e116]: Ausfälle zu prüfen und Maßnahmen gegen Spam, Betrug und Missbrauch zu ergreifen
+                - listitem [ref=e117]: Daten zu Zielgruppeninteraktionen und Websitestatistiken zu erheben. Mit den gewonnenen Informationen möchten wir verstehen, wie unsere Dienste verwendet werden, und die Qualität dieser Dienste verbessern.
+            - generic [ref=e118]:
+              - text: Wenn Sie „Alle akzeptieren“ auswählen, verwenden wir Cookies und Daten auch, um
+              - list [ref=e119]:
+                - listitem [ref=e120]: neue Dienste zu entwickeln und zu verbessern
+                - listitem [ref=e121]: Werbung auszuliefern und ihre Effektivität zu messen
+                - listitem [ref=e122]: je nach Ihren Einstellungen personalisierte Inhalte anzuzeigen
+                - listitem [ref=e123]: personalisierte Werbung anzuzeigen, abhängig von Ihren Einstellungen
+              - generic [ref=e124]: Wenn Sie „Alle ablehnen“ auswählen, verwenden wir Cookies nicht für diese zusätzlichen Zwecke.
+            - generic [ref=e125]: Nicht personalisierte Inhalte werden u. a. von Inhalten, die Sie sich gerade ansehen, Aktivitäten in Ihrer aktiven Suchsitzung und Ihrem Standort beeinflusst. Nicht personalisierte Werbung wird von den Inhalten, die Sie sich gerade ansehen, und Ihrem allgemeinen Standort beeinflusst. Personalisierte Inhalte und Werbung können auch relevantere Ergebnisse, Empfehlungen und individuelle Werbung enthalten, die auf früheren Aktivitäten in diesem Browser, etwa Suchanfragen bei Google, beruhen. Sofern relevant, verwenden wir Cookies und Daten außerdem, um Inhalte und Werbung altersgerecht zu gestalten.
+            - generic [ref=e126]: Wählen Sie „Weitere Optionen“ aus, um sich zusätzliche Informationen anzusehen, einschließlich Details zum Verwalten Ihrer Datenschutzeinstellungen. Sie können auch jederzeit g.co/privacytools besuchen.
+        - generic [ref=e127]:
+          - generic [ref=e128]:
+            - button "Alle ablehnen" [ref=e129] [cursor=pointer]
+            - button "Alle akzeptieren" [ref=e130] [cursor=pointer]
+          - link "Weitere Optionen für Personalisierungseinstellungen und Cookies" [ref=e132] [cursor=pointer]:
+            - generic "Weitere Optionen für Personalisierungseinstellungen und Cookies" [ref=e133]: Weitere Optionen
+        - generic [ref=e134]:
+          - link "Datenschutz" [ref=e135] [cursor=pointer]:
+            - /url: https://policies.google.com/privacy?hl=de&fg=1&utm_source=ucbs
+          - generic [ref=e136]: ·
+          - link "Nutzungsbedingungen" [ref=e137] [cursor=pointer]:
+            - /url: https://policies.google.com/terms?hl=de&fg=1&utm_source=ucbs
