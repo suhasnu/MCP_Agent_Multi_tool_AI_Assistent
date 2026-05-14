@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate
 from mcp_use import MCPAgent, MCPClient
+from datetime import datetime
 import os
 
 async def run_memory_chat():
@@ -12,21 +13,23 @@ async def run_memory_chat():
 
     # Config file path
     config_path = "browser_mcp.json"
-
-    print("Initializing chat")
+    print("Initializing chat...")
 
     # Initialize MCP client and LLM
     client = MCPClient.from_config_file(config_path)
-    llm = ChatGroq(model="llama-3.1-8b-instant")
+    llm = ChatGroq(model = "llama-3.1-8b-instant")
 
     # Create MCP-Agent with memory
     agent = MCPAgent(
         llm=llm,
         client=client,
         max_steps=15,
-        memory_enabled=True, # Enable conversation memory
+        memory_enabled=True # Enable conversation memory
+        
     )
 
+    current_date = datetime.now().strftime("%Y-%m-%d")
+    
     print("\n=== Interactive MCP Chat ===")
     print("Type 'exit' or 'quit' to end the chat") 
     print("Type 'clear' to clear the conversation memory")
@@ -52,11 +55,16 @@ async def run_memory_chat():
             # Get agent response
             print("\nAssistant: ", end="", flush=True)
 
-            try:
-                # Run the agent with user input
-                response = await agent.run(user_input)
-                print(response)
+            enhanced_input = f"[System Note: Today is {current_date}] " + user_input
 
+            try:
+                # Run the agent with enhanced input
+                response = await agent.run(enhanced_input)
+                print(response)
+            
+            except RuntimeError as e:
+                print(f"\n[Tool Error] A tool scraper failed or was rate-limited: {e}")
+                
             except Exception as e:
                 print(f"\nError: {e}")
 

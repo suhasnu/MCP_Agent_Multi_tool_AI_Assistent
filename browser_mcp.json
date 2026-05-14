@@ -4,7 +4,7 @@
         "command": "npx",
         "args": ["@playwright/mcp@latest"]
         }
-    },
+    ,
     
      "airbnb": {
         "command": "npx",
@@ -21,6 +21,6 @@
           "duckduckgo-mcp-server"
         ]
     }
-  
+  }
            
 }

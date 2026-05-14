@@ -1,0 +1,800 @@
+- generic [ref=e1]:
+  - generic [ref=e3]:
+    - link "Skip to content" [ref=e4] [cursor=pointer]:
+      - /url: "#bbc-main"
+    - banner [ref=e5]:
+      - generic [ref=e6]:
+        - button "Open menu" [ref=e8] [cursor=pointer]:
+          - img [ref=e9]
+        - link "British Broadcasting Corporation" [ref=e17] [cursor=pointer]:
+          - /url: /
+          - img "British Broadcasting Corporation" [ref=e18]
+        - generic [ref=e21]:
+          - link "Register" [ref=e23] [cursor=pointer]:
+            - /url: https://session.bbc.com/session?action=register&userOrigin=BBCS_BBC&ptrt=https%3A%2F%2Fwww.bbc.com%2Fnews
+            - button "Register" [ref=e24]:
+              - generic [ref=e25]: Register
+          - link "Sign In" [ref=e27] [cursor=pointer]:
+            - /url: https://session.bbc.com/session?userOrigin=BBCS_BBC&ptrt=https%3A%2F%2Fwww.bbc.com%2Fnews
+            - button "Sign In" [ref=e28]:
+              - generic [ref=e29]: Sign In
+    - navigation [ref=e30]:
+      - navigation [ref=e32]:
+        - list [ref=e33]:
+          - listitem [ref=e34]:
+            - link "Home" [ref=e36] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e37]:
+            - link "News" [ref=e39] [cursor=pointer]:
+              - /url: /news
+          - listitem [ref=e40]:
+            - link "Sport" [ref=e42] [cursor=pointer]:
+              - /url: /sport
+          - listitem [ref=e43]:
+            - link "Business" [ref=e45] [cursor=pointer]:
+              - /url: /business
+          - listitem [ref=e46]:
+            - link "Technology" [ref=e48] [cursor=pointer]:
+              - /url: /technology
+          - listitem [ref=e49]:
+            - link "Health" [ref=e51] [cursor=pointer]:
+              - /url: /health
+          - listitem [ref=e52]:
+            - link "Culture" [ref=e54] [cursor=pointer]:
+              - /url: /culture
+          - listitem [ref=e55]:
+            - link "Arts" [ref=e57] [cursor=pointer]:
+              - /url: /arts
+          - listitem [ref=e58]:
+            - link "Travel" [ref=e60] [cursor=pointer]:
+              - /url: /travel
+          - listitem [ref=e61]:
+            - link "Earth" [ref=e63] [cursor=pointer]:
+              - /url: /future-planet
+          - listitem [ref=e64]:
+            - link "Audio" [ref=e66] [cursor=pointer]:
+              - /url: /audio
+          - listitem [ref=e67]:
+            - link "Video" [ref=e69] [cursor=pointer]:
+              - /url: /video
+          - listitem [ref=e70]:
+            - link "Live" [ref=e72] [cursor=pointer]:
+              - /url: /live
+      - navigation [ref=e73]:
+        - navigation [ref=e74]:
+          - list [ref=e75]:
+            - listitem [ref=e76]:
+              - link "US & Canada" [ref=e78] [cursor=pointer]:
+                - /url: /news/us-canada
+            - listitem [ref=e79]:
+              - link "UK" [ref=e81] [cursor=pointer]:
+                - /url: /news/uk
+            - listitem [ref=e82]:
+              - link "Africa" [ref=e84] [cursor=pointer]:
+                - /url: /news/world/africa
+            - listitem [ref=e85]:
+              - link "Asia" [ref=e87] [cursor=pointer]:
+                - /url: /news/world/asia
+            - listitem [ref=e88]:
+              - link "Australia" [ref=e90] [cursor=pointer]:
+                - /url: /news/world/australia
+            - listitem [ref=e91]:
+              - link "Europe" [ref=e93] [cursor=pointer]:
+                - /url: /news/world/europe
+            - listitem [ref=e94]:
+              - link "Latin America" [ref=e96] [cursor=pointer]:
+                - /url: /news/world/latin_america
+            - listitem [ref=e97]:
+              - link "Middle East" [ref=e99] [cursor=pointer]:
+                - /url: /news/world/middle_east
+            - listitem [ref=e100]:
+              - link "In Pictures" [ref=e102] [cursor=pointer]:
+                - /url: /news/in_pictures
+            - listitem [ref=e103]:
+              - link "BBC InDepth" [ref=e105] [cursor=pointer]:
+                - /url: /news/bbcindepth
+            - listitem [ref=e106]:
+              - link "BBC Verify" [ref=e108] [cursor=pointer]:
+                - /url: /news/bbcverify
+    - main [ref=e109]:
+      - article [ref=e110]:
+        - heading "News" [level=1] [ref=e115]:
+          - img "News" [ref=e116]
+        - generic [ref=e120]:
+          - generic [ref=e123]:
+            - link "U.S. President Donald Trump and Chinese President Xi Jinping visit the Temple of Heaven on May 14, 2026 in Beijing, China" [ref=e127] [cursor=pointer]:
+              - /url: https://www.bbc.com/news/live/cvgz8qverzqt
+              - img "U.S. President Donald Trump and Chinese President Xi Jinping visit the Temple of Heaven on May 14, 2026 in Beijing, China" [ref=e129]
+            - link "LIVE Trump calls high-stakes talks with Xi 'great' as Beijing again warns US over Taiwan The US president was greeted by cheering children and a troop inspection ahead of high-stakes talks and a tour of the Temple of Heaven." [ref=e133] [cursor=pointer]:
+              - /url: https://www.bbc.com/news/live/cvgz8qverzqt
+              - generic [ref=e134]:
+                - generic [ref=e136]:
+                  - generic [ref=e137]:
+                    - img [ref=e138]
+                    - generic [ref=e141]: LIVE
+                  - heading "Trump calls high-stakes talks with Xi 'great' as Beijing again warns US over Taiwan" [level=2] [ref=e142]
+                - paragraph [ref=e143]: The US president was greeted by cheering children and a troop inspection ahead of high-stakes talks and a tour of the Temple of Heaven.
+          - generic [ref=e146]:
+            - 'link "Donald Trump and Xi Jinping shake hands while standing in front of two US flags and one Chinese flag Watch: What happened on day one of Trump''s China visit? China welcomed US President Donald Trump with cheering children and a troop parade on Thursday, before a nearly two-hour long meeting with Xi-Jinping. 3 hrs ago World" [ref=e150] [cursor=pointer]':
+              - /url: /news/videos/c707xn4ew3po
+              - generic [ref=e151]:
+                - generic [ref=e153]:
+                  - img "Donald Trump and Xi Jinping shake hands while standing in front of two US flags and one Chinese flag" [ref=e155]
+                  - img [ref=e158]
+                - generic [ref=e160]:
+                  - 'heading "Watch: What happened on day one of Trump''s China visit?" [level=2] [ref=e163]'
+                  - paragraph [ref=e164]: China welcomed US President Donald Trump with cheering children and a troop parade on Thursday, before a nearly two-hour long meeting with Xi-Jinping.
+                  - generic [ref=e165]:
+                    - generic [ref=e166]: 3 hrs ago
+                    - generic: World
+            - link "US citizen convicted of running secret Chinese 'police station' in NYC The secret police station, located above a ramen stall in NYC, is one of at least 100 such facilities that have been reported across 53 countries. 10 hrs ago World" [ref=e171] [cursor=pointer]:
+              - /url: /news/articles/cy72yy7z1dyo
+              - generic [ref=e173]:
+                - heading "US citizen convicted of running secret Chinese 'police station' in NYC" [level=2] [ref=e176]
+                - paragraph [ref=e177]: The secret police station, located above a ramen stall in NYC, is one of at least 100 such facilities that have been reported across 53 countries.
+                - generic [ref=e178]:
+                  - generic [ref=e179]: 10 hrs ago
+                  - generic: World
+            - link "US grief author who poisoned husband sentenced to life in prison Kouri Richins published a children's book about grief soon after her husband's death, which a jury later found she had caused. 13 hrs ago US & Canada" [ref=e184] [cursor=pointer]:
+              - /url: /news/articles/cq5p83edx9jo
+              - generic [ref=e186]:
+                - heading "US grief author who poisoned husband sentenced to life in prison" [level=2] [ref=e189]
+                - paragraph [ref=e190]: Kouri Richins published a children's book about grief soon after her husband's death, which a jury later found she had caused.
+                - generic [ref=e191]:
+                  - generic [ref=e192]: 13 hrs ago
+                  - generic: US & Canada
+          - generic [ref=e195]:
+            - link "reeves rayner LIVE Chancellor warns leadership contest would cause 'chaos', as Rayner resolves tax issue HMRC regards the row over the former deputy leader's stamp duty as closed and she will not face a penalty after paying £40,000 she owed." [ref=e199] [cursor=pointer]:
+              - /url: https://www.bbc.com/news/live/cwy21gpr1kzt
+              - generic [ref=e200]:
+                - img "reeves rayner" [ref=e204]
+                - generic [ref=e205]:
+                  - generic [ref=e207]:
+                    - generic [ref=e208]:
+                      - img [ref=e209]
+                      - generic [ref=e212]: LIVE
+                    - heading "Chancellor warns leadership contest would cause 'chaos', as Rayner resolves tax issue" [level=2] [ref=e213]
+                  - paragraph [ref=e214]: HMRC regards the row over the former deputy leader's stamp duty as closed and she will not face a penalty after paying £40,000 she owed.
+            - link "Two people stand in front of rescuers with damaged residential buildings and rubble in the background on a sunny day in Kyiv on Thursday. Rescuers pull dead from rubble of Kyiv flats after massive Russian strikes Children are among the injured after Russia launched drones and missiles across Ukraine, officials say. 12 mins ago Europe" [ref=e219] [cursor=pointer]:
+              - /url: /news/articles/cq5p8yygq94o
+              - generic [ref=e220]:
+                - img "Two people stand in front of rescuers with damaged residential buildings and rubble in the background on a sunny day in Kyiv on Thursday." [ref=e224]
+                - generic [ref=e225]:
+                  - heading "Rescuers pull dead from rubble of Kyiv flats after massive Russian strikes" [level=2] [ref=e228]
+                  - paragraph [ref=e229]: Children are among the injured after Russia launched drones and missiles across Ukraine, officials say.
+                  - generic [ref=e230]:
+                    - generic [ref=e231]: 12 mins ago
+                    - generic: Europe
+            - link "A silhouetted plane flies overhead with shrubbery in view against a blue sunny-cloudy sky while arriving at Gatwick Airport on 20 April. Warning higher Europe air fares 'inevitable' due to Iran war Flying by air will get more expensive as oil prices remain high, says international industry body boss. 11 hrs ago Business" [ref=e236] [cursor=pointer]:
+              - /url: /news/articles/clyprnelzxzo
+              - generic [ref=e237]:
+                - img "A silhouetted plane flies overhead with shrubbery in view against a blue sunny-cloudy sky while arriving at Gatwick Airport on 20 April." [ref=e241]
+                - generic [ref=e242]:
+                  - heading "Warning higher Europe air fares 'inevitable' due to Iran war" [level=2] [ref=e245]
+                  - paragraph [ref=e246]: Flying by air will get more expensive as oil prices remain high, says international industry body boss.
+                  - generic [ref=e247]:
+                    - generic [ref=e248]: 11 hrs ago
+                    - generic: Business
+            - link "A split image of Madonna, Shakira and Jungkook of BTS Madonna, Shakira & BTS to headline World Cup half-time show Madonna, Shakira and K-pop boy band BTS will headline the Super Bowl-style half-time show at this summer's World Cup final. 3 hrs ago World Cup" [ref=e253] [cursor=pointer]:
+              - /url: /sport/football/articles/c5yrl54561do
+              - generic [ref=e254]:
+                - img "A split image of Madonna, Shakira and Jungkook of BTS" [ref=e258]
+                - generic [ref=e259]:
+                  - heading "Madonna, Shakira & BTS to headline World Cup half-time show" [level=2] [ref=e262]
+                  - paragraph [ref=e263]: Madonna, Shakira and K-pop boy band BTS will headline the Super Bowl-style half-time show at this summer's World Cup final.
+                  - generic [ref=e264]:
+                    - generic [ref=e265]: 3 hrs ago
+                    - generic: World Cup
+        - generic [ref=e269]:
+          - link "Alberta judge tosses out petition for province to separate from Canada" [ref=e272] [cursor=pointer]:
+            - /url: /news/articles/clypn8py4zwo
+            - heading "Alberta judge tosses out petition for province to separate from Canada" [level=2] [ref=e276]
+          - link "Hezbollah support endures in south Lebanon as ceasefire fails to stop war with Israel" [ref=e279] [cursor=pointer]:
+            - /url: /news/articles/c9d3g6deljyo
+            - heading "Hezbollah support endures in south Lebanon as ceasefire fails to stop war with Israel" [level=2] [ref=e283]
+          - link "'They shot my neighbour in the head' - the lakeside city traumatised by war" [ref=e286] [cursor=pointer]:
+            - /url: /news/articles/cy42dgj0x32o
+            - heading "'They shot my neighbour in the head' - the lakeside city traumatised by war" [level=2] [ref=e290]
+          - link "UK economy sees surprise growth in March despite Iran war" [ref=e293] [cursor=pointer]:
+            - /url: /news/articles/cx213n20njzo
+            - heading "UK economy sees surprise growth in March despite Iran war" [level=2] [ref=e297]
+          - link "Israel's Eurovision entry 'shocked' by protests during semi-final show" [ref=e300] [cursor=pointer]:
+            - /url: /news/articles/ckgpjx4503zo
+            - heading "Israel's Eurovision entry 'shocked' by protests during semi-final show" [level=2] [ref=e304]
+        - generic [ref=e306]:
+          - generic [ref=e307]:
+            - separator [ref=e309]
+            - heading "Trump meets Xi in China" [level=2] [ref=e312]
+          - generic [ref=e313]:
+            - 'link "U.S. President Donald Trump and Chinese President Xi Jinping attend a welcome ceremony at the Great Hall of the People on May 14, 2026 in Beijing, China. In pictures: Trump hosted by Xi Jinping in Beijing on two-day summit President Trump was welcomed by President Xi Jinping in Beijing for what will be a whirlwind tour." [ref=e316] [cursor=pointer]':
+              - /url: /news/articles/cdxp0g4q3q2o
+              - generic [ref=e317]:
+                - img "U.S. President Donald Trump and Chinese President Xi Jinping attend a welcome ceremony at the Great Hall of the People on May 14, 2026 in Beijing, China." [ref=e321]
+                - generic [ref=e322]:
+                  - 'heading "In pictures: Trump hosted by Xi Jinping in Beijing on two-day summit" [level=2] [ref=e325]'
+                  - paragraph [ref=e326]: President Trump was welcomed by President Xi Jinping in Beijing for what will be a whirlwind tour.
+            - 'link "Donald Trump, Sarah Smith, and Xi Jinping are pictured (left to right). Trump v Xi: Who has the upper hand? The BBC''s Sarah Smith explains the power dynamic between the two world leaders as they meet in Beijing." [ref=e329] [cursor=pointer]':
+              - /url: /news/videos/cj0py2jvzljo
+              - generic [ref=e330]:
+                - generic [ref=e332]:
+                  - img "Donald Trump, Sarah Smith, and Xi Jinping are pictured (left to right)." [ref=e334]
+                  - img [ref=e337]
+                - generic [ref=e339]:
+                  - 'heading "Trump v Xi: Who has the upper hand?" [level=2] [ref=e342]'
+                  - paragraph [ref=e343]: The BBC's Sarah Smith explains the power dynamic between the two world leaders as they meet in Beijing.
+            - link "Xi Jinping, China's president, left, gestures while standing next to U.S. President Donald Trump, during a welcome ceremony outside the Great Hall of the People in Beijing, China, in November 2017. A decade on, Trump returns to a stronger and more assertive China Beijing is arguably the most powerful competitor the US has confronted in its history, one analyst says." [ref=e346] [cursor=pointer]:
+              - /url: /news/articles/cm2py6l78dxo
+              - generic [ref=e347]:
+                - img "Xi Jinping, China's president, left, gestures while standing next to U.S. President Donald Trump, during a welcome ceremony outside the Great Hall of the People in Beijing, China, in November 2017." [ref=e351]
+                - generic [ref=e352]:
+                  - heading "A decade on, Trump returns to a stronger and more assertive China" [level=2] [ref=e355]
+                  - paragraph [ref=e356]: Beijing is arguably the most powerful competitor the US has confronted in its history, one analyst says.
+            - link "Donald Trump and Xi Jinping pictured shaking hands in front of a Chinese flag and a US flag What to know as Trump visits Xi in China Trump has landed in Beijing for the first visit by a US leader since his own in 2017." [ref=e359] [cursor=pointer]:
+              - /url: /news/articles/cyv2n7l1z14o
+              - generic [ref=e360]:
+                - img "Donald Trump and Xi Jinping pictured shaking hands in front of a Chinese flag and a US flag" [ref=e364]
+                - generic [ref=e365]:
+                  - heading "What to know as Trump visits Xi in China" [level=2] [ref=e368]
+                  - paragraph [ref=e369]: Trump has landed in Beijing for the first visit by a US leader since his own in 2017.
+        - generic [ref=e371]:
+          - generic [ref=e375]:
+            - separator [ref=e377]
+            - heading "More to explore" [level=2] [ref=e380]
+          - generic [ref=e382]:
+            - generic [ref=e385]:
+              - link "image unavailable Donald Trump and Xi Jinping pictured shaking hands in front of a Chinese flag and a US flag" [ref=e389] [cursor=pointer]:
+                - /url: /news/articles/cyv2n7l1z14o
+                - generic [ref=e390]:
+                  - img "image unavailable" [ref=e391]
+                  - img "Donald Trump and Xi Jinping pictured shaking hands in front of a Chinese flag and a US flag" [ref=e392]
+              - link "What to know as Trump visits Xi in China Trump has landed in Beijing for the first visit by a US leader since his own in 2017. 57 mins ago Asia" [ref=e396] [cursor=pointer]:
+                - /url: /news/articles/cyv2n7l1z14o
+                - generic [ref=e397]:
+                  - heading "What to know as Trump visits Xi in China" [level=2] [ref=e400]
+                  - paragraph [ref=e401]: Trump has landed in Beijing for the first visit by a US leader since his own in 2017.
+                  - generic [ref=e402]:
+                    - generic [ref=e403]: 57 mins ago
+                    - generic: Asia
+            - generic [ref=e406]:
+              - link "image unavailable A man with a criffy beard wears a grey t-shirt and smiles as he takes a selfie in a room with a bed and exercise bike in the background Egg sandwiches and isolation - Life in US hantavirus quarantine Jake Rosmarin tells the BBC what it's like inside the national quarantine unit where he and 14 other passengers are staying in Nebraska. 15 hrs ago US & Canada" [ref=e410] [cursor=pointer]:
+                - /url: /news/articles/c2021x77970o
+                - generic [ref=e411]:
+                  - generic [ref=e414]:
+                    - img "image unavailable" [ref=e415]
+                    - img "A man with a criffy beard wears a grey t-shirt and smiles as he takes a selfie in a room with a bed and exercise bike in the background" [ref=e416]
+                  - generic [ref=e417]:
+                    - heading "Egg sandwiches and isolation - Life in US hantavirus quarantine" [level=2] [ref=e420]
+                    - paragraph [ref=e421]: Jake Rosmarin tells the BBC what it's like inside the national quarantine unit where he and 14 other passengers are staying in Nebraska.
+                    - generic [ref=e422]:
+                      - generic [ref=e423]: 15 hrs ago
+                      - generic: US & Canada
+              - 'link "From tourist tax to digital ID: BBC correspondents on the key bills in the King''s Speech BBC correspondents look at some of the new bills Sir Keir Starmer''s government wants to pass. 16 hrs ago Politics" [ref=e428] [cursor=pointer]':
+                - /url: /news/articles/c1j2nr8kgk3o
+                - generic [ref=e430]:
+                  - 'heading "From tourist tax to digital ID: BBC correspondents on the key bills in the King''s Speech" [level=2] [ref=e433]'
+                  - paragraph [ref=e434]: BBC correspondents look at some of the new bills Sir Keir Starmer's government wants to pass.
+                  - generic [ref=e435]:
+                    - generic [ref=e436]: 16 hrs ago
+                    - generic: Politics
+              - link "Republicans feared losing midterms - but fight over voting maps changed all that Two recent court decisions have upended a redistricting race in multiple US states, and implications could last well beyond November's midterms. 12 hrs ago US & Canada" [ref=e441] [cursor=pointer]:
+                - /url: /news/articles/ckgpjqvjyz8o
+                - generic [ref=e443]:
+                  - heading "Republicans feared losing midterms - but fight over voting maps changed all that" [level=2] [ref=e446]
+                  - paragraph [ref=e447]: Two recent court decisions have upended a redistricting race in multiple US states, and implications could last well beyond November's midterms.
+                  - generic [ref=e448]:
+                    - generic [ref=e449]: 12 hrs ago
+                    - generic: US & Canada
+            - link "image unavailable Microsoft's Mico cartoon character Why big tech is betting on cute mascots The likes of Apple, Microsoft and Google are all putting cartoon characters centre stage. 11 hrs ago" [ref=e454] [cursor=pointer]:
+              - /url: /news/articles/c99l1zzp8xzo
+              - generic [ref=e455]:
+                - generic [ref=e458]:
+                  - img "image unavailable" [ref=e459]
+                  - img "Microsoft's Mico cartoon character" [ref=e460]
+                - generic [ref=e461]:
+                  - heading "Why big tech is betting on cute mascots" [level=2] [ref=e464]
+                  - paragraph [ref=e465]: The likes of Apple, Microsoft and Google are all putting cartoon characters centre stage.
+                  - generic [ref=e467]: 11 hrs ago
+            - link "image unavailable Dokadia family in happier times - Abdullah and wife Nasreen with their two daughters Ayesha and Zainab Rat poison watermelon deaths puzzle Indian investigators The four-member Dokadia family was found dead at their Mumbai home on 25 April. 12 hrs ago Asia" [ref=e471] [cursor=pointer]:
+              - /url: /news/articles/cwy2ryn2j3wo
+              - generic [ref=e472]:
+                - generic [ref=e475]:
+                  - img "image unavailable" [ref=e476]
+                  - img "Dokadia family in happier times - Abdullah and wife Nasreen with their two daughters Ayesha and Zainab" [ref=e477]
+                - generic [ref=e478]:
+                  - heading "Rat poison watermelon deaths puzzle Indian investigators" [level=2] [ref=e481]
+                  - paragraph [ref=e482]: The four-member Dokadia family was found dead at their Mumbai home on 25 April.
+                  - generic [ref=e483]:
+                    - generic [ref=e484]: 12 hrs ago
+                    - generic: Asia
+            - link "image unavailable A man wearing a black songkok and a white shirt speaks into a microphone Mass sex abuse allegations force closure of boarding school in Indonesia The school's caretaker is thought to have abused as many as 50 female students, many of them orphans. 12 hrs ago Asia" [ref=e489] [cursor=pointer]:
+              - /url: /news/articles/clyp82x2g0qo
+              - generic [ref=e490]:
+                - generic [ref=e493]:
+                  - img "image unavailable" [ref=e494]
+                  - img "A man wearing a black songkok and a white shirt speaks into a microphone" [ref=e495]
+                - generic [ref=e496]:
+                  - heading "Mass sex abuse allegations force closure of boarding school in Indonesia" [level=2] [ref=e499]
+                  - paragraph [ref=e500]: The school's caretaker is thought to have abused as many as 50 female students, many of them orphans.
+                  - generic [ref=e501]:
+                    - generic [ref=e502]: 12 hrs ago
+                    - generic: Asia
+        - generic [ref=e505]:
+          - generic [ref=e506]:
+            - separator [ref=e508]
+            - heading "Most watched" [level=2] [ref=e511]
+          - generic [ref=e512]:
+            - 'link "1 Watch: What happened on day one of Trump''s China visit?" [ref=e515] [cursor=pointer]':
+              - /url: /news/videos/c707xn4ew3po
+              - generic [ref=e516]:
+                - generic [ref=e517]: "1"
+                - generic [ref=e519]:
+                  - img [ref=e521]
+                  - 'heading "Watch: What happened on day one of Trump''s China visit?" [level=2] [ref=e523]'
+            - link "2 Why is Donald Trump visiting China now? BBC explains" [ref=e526] [cursor=pointer]:
+              - /url: /news/videos/clypvn70783o
+              - generic [ref=e527]:
+                - generic [ref=e528]: "2"
+                - generic [ref=e530]:
+                  - img [ref=e532]
+                  - heading "Why is Donald Trump visiting China now? BBC explains" [level=2] [ref=e534]
+            - 'link "3 Trump v Xi: Who has the upper hand?" [ref=e537] [cursor=pointer]':
+              - /url: /news/videos/cj0py2jvzljo
+              - generic [ref=e538]:
+                - generic [ref=e539]: "3"
+                - generic [ref=e541]:
+                  - img [ref=e543]
+                  - 'heading "Trump v Xi: Who has the upper hand?" [level=2] [ref=e545]'
+            - 'link "4 Watch: US Naval Academy''s freshman class completes annual ''Herndon Climb''" [ref=e548] [cursor=pointer]':
+              - /url: /news/videos/cdjp22gxyrgo
+              - generic [ref=e549]:
+                - generic [ref=e550]: "4"
+                - generic [ref=e552]:
+                  - img [ref=e554]
+                  - 'heading "Watch: US Naval Academy''s freshman class completes annual ''Herndon Climb''" [level=2] [ref=e556]'
+            - 'link "5 ''Total lack of respect'': Macron interrupts speaker to ask for silence" [ref=e559] [cursor=pointer]':
+              - /url: /news/videos/czx2wd20evyo
+              - generic [ref=e560]:
+                - generic [ref=e561]: "5"
+                - generic [ref=e563]:
+                  - img [ref=e565]
+                  - 'heading "''Total lack of respect'': Macron interrupts speaker to ask for silence" [level=2] [ref=e567]'
+        - generic [ref=e570]:
+          - generic [ref=e571]:
+            - separator [ref=e573]
+            - heading "UK leadership crisis" [level=2] [ref=e576]
+          - generic [ref=e577]:
+            - 'link "image unavailable Composite image of Henry Zeffman and Angela Rayner Watch: Angela Rayner resolves tax affairs - what now? BBC chief political correspondent Henry Zeffman explains what this could mean for a potential Labour leadership contest." [ref=e580] [cursor=pointer]':
+              - /url: /news/videos/c5yepj79n04o
+              - generic [ref=e581]:
+                - generic [ref=e583]:
+                  - generic [ref=e584]:
+                    - img "image unavailable" [ref=e585]
+                    - img "Composite image of Henry Zeffman and Angela Rayner" [ref=e586]
+                  - img [ref=e589]
+                - generic [ref=e591]:
+                  - 'heading "Watch: Angela Rayner resolves tax affairs - what now?" [level=2] [ref=e594]'
+                  - paragraph [ref=e595]: BBC chief political correspondent Henry Zeffman explains what this could mean for a potential Labour leadership contest.
+            - 'link "image unavailable Health Secretary Wes Streeting Chris Mason: Potential leadership challengers jostle for position Sir Keir Starmer and his backers argue a leadership contest would paralyse the government for months." [ref=e598] [cursor=pointer]':
+              - /url: /news/articles/c232pz403dko
+              - generic [ref=e599]:
+                - generic [ref=e602]:
+                  - img "image unavailable" [ref=e603]
+                  - img "Health Secretary Wes Streeting" [ref=e604]
+                - generic [ref=e605]:
+                  - 'heading "Chris Mason: Potential leadership challengers jostle for position" [level=2] [ref=e608]'
+                  - paragraph [ref=e609]: Sir Keir Starmer and his backers argue a leadership contest would paralyse the government for months.
+            - 'link "image unavailable Angela Rayner ''I''ve been exonerated'': Angela Rayner says HMRC has cleared her over flat stamp duty Rayner stood down as deputy prime minister in September 2025 after admitting underpaying stamp duty." [ref=e612] [cursor=pointer]':
+              - /url: /news/articles/cx219y4qy0qo
+              - generic [ref=e613]:
+                - generic [ref=e616]:
+                  - img "image unavailable" [ref=e617]
+                  - img "Angela Rayner" [ref=e618]
+                - generic [ref=e619]:
+                  - 'heading "''I''ve been exonerated'': Angela Rayner says HMRC has cleared her over flat stamp duty" [level=2] [ref=e622]'
+                  - paragraph [ref=e623]: Rayner stood down as deputy prime minister in September 2025 after admitting underpaying stamp duty.
+            - link "image unavailable Sir Keir Starmer addresses members of the cabinet. He is looking towards the camera and is wearing glasses and a dark suit and tie with a white shirt. Some members of the cabinet are looking away from the camera and some are not in focus. In front of them are papers, drinks glasses and mugs. How would a Labour leadership contest work? How could MPs who want to see Sir Keir Starmer replaced force a leadership contest?" [ref=e626] [cursor=pointer]:
+              - /url: /news/articles/c3631k30xjlo
+              - generic [ref=e627]:
+                - generic [ref=e630]:
+                  - img "image unavailable" [ref=e631]
+                  - img "Sir Keir Starmer addresses members of the cabinet. He is looking towards the camera and is wearing glasses and a dark suit and tie with a white shirt. Some members of the cabinet are looking away from the camera and some are not in focus. In front of them are papers, drinks glasses and mugs." [ref=e632]
+                - generic [ref=e633]:
+                  - heading "How would a Labour leadership contest work?" [level=2] [ref=e636]
+                  - paragraph [ref=e637]: How could MPs who want to see Sir Keir Starmer replaced force a leadership contest?
+        - generic [ref=e638]:
+          - generic [ref=e642]:
+            - separator [ref=e644]
+            - heading "Also in news" [level=2] [ref=e647]
+          - generic [ref=e649]:
+            - generic [ref=e652]:
+              - link "image unavailable A man cooks with firewood during a blackout in Havana on May 13, 2026." [ref=e656] [cursor=pointer]:
+                - /url: /news/articles/cd7pyrj0vx7o
+                - generic [ref=e657]:
+                  - img "image unavailable" [ref=e658]
+                  - img "A man cooks with firewood during a blackout in Havana on May 13, 2026." [ref=e659]
+              - link "Cuba has run out of diesel and oil, energy minister says The minister says the situation in Cuba is \"extremely tense\", as a US-led blockade of oil to the country causes widespread power cuts. 56 mins ago World" [ref=e663] [cursor=pointer]:
+                - /url: /news/articles/cd7pyrj0vx7o
+                - generic [ref=e664]:
+                  - heading "Cuba has run out of diesel and oil, energy minister says" [level=2] [ref=e667]
+                  - paragraph [ref=e668]: The minister says the situation in Cuba is "extremely tense", as a US-led blockade of oil to the country causes widespread power cuts.
+                  - generic [ref=e669]:
+                    - generic [ref=e670]: 56 mins ago
+                    - generic: World
+            - generic [ref=e673]:
+              - link "image unavailable U.S. Commerce Secretary Howard Lutnick attends an event on advancing health care affordability in the Oval Office of the White House on April 23, 2026 in Washington, DC. US commerce secretary details 'off-putting' interaction with Epstein in testimony The commerce secretary spoke of three interactions with Jeffrey Epstein, including a visit to the financier's home and his island in the Caribbean. 9 hrs ago US & Canada" [ref=e677] [cursor=pointer]:
+                - /url: /news/articles/cn9p2yewdrxo
+                - generic [ref=e678]:
+                  - generic [ref=e681]:
+                    - img "image unavailable" [ref=e682]
+                    - img "U.S. Commerce Secretary Howard Lutnick attends an event on advancing health care affordability in the Oval Office of the White House on April 23, 2026 in Washington, DC." [ref=e683]
+                  - generic [ref=e684]:
+                    - heading "US commerce secretary details 'off-putting' interaction with Epstein in testimony" [level=2] [ref=e687]
+                    - paragraph [ref=e688]: The commerce secretary spoke of three interactions with Jeffrey Epstein, including a visit to the financier's home and his island in the Caribbean.
+                    - generic [ref=e689]:
+                      - generic [ref=e690]: 9 hrs ago
+                      - generic: US & Canada
+              - link "Drug addiction counsellor sentenced in Matthew Perry's overdose death The drug counsellor was one of five people accused of supplying ketamine to Perry and exploiting his drug addiction. 15 hrs ago US & Canada" [ref=e695] [cursor=pointer]:
+                - /url: /news/articles/cvgz1emrn8go
+                - generic [ref=e697]:
+                  - heading "Drug addiction counsellor sentenced in Matthew Perry's overdose death" [level=2] [ref=e700]
+                  - paragraph [ref=e701]: The drug counsellor was one of five people accused of supplying ketamine to Perry and exploiting his drug addiction.
+                  - generic [ref=e702]:
+                    - generic [ref=e703]: 15 hrs ago
+                    - generic: US & Canada
+              - link "Passengers allowed to leave norovirus-hit cruise ship Passengers on the ship showing no symptoms are allowed to leave, authorities say, after 49 people fell ill from gastrointestinal sickness. 13 hrs ago Europe" [ref=e708] [cursor=pointer]:
+                - /url: /news/articles/cn5pe4yel1ko
+                - generic [ref=e710]:
+                  - heading "Passengers allowed to leave norovirus-hit cruise ship" [level=2] [ref=e713]
+                  - paragraph [ref=e714]: Passengers on the ship showing no symptoms are allowed to leave, authorities say, after 49 people fell ill from gastrointestinal sickness.
+                  - generic [ref=e715]:
+                    - generic [ref=e716]: 13 hrs ago
+                    - generic: Europe
+            - link "image unavailable A shot of Netanyahu from the shoulders up, wearing a dark suit with a white shirt and a light blue tie. He has a small pin of the Israel flag on his lapel. Behind him is a plain blue background with part of the Israel flag to the left. Netanyahu says he 'secretly visited' UAE during war with Iran The UAE denied reports of the \"alleged visit\" and insisted relations between the two countries were not based on \"unofficial arrangements\". 12 hrs ago Middle East" [ref=e721] [cursor=pointer]:
+              - /url: /news/articles/czj2mnwv1ryo
+              - generic [ref=e722]:
+                - generic [ref=e725]:
+                  - img "image unavailable" [ref=e726]
+                  - img "A shot of Netanyahu from the shoulders up, wearing a dark suit with a white shirt and a light blue tie. He has a small pin of the Israel flag on his lapel. Behind him is a plain blue background with part of the Israel flag to the left." [ref=e727]
+                - generic [ref=e728]:
+                  - heading "Netanyahu says he 'secretly visited' UAE during war with Iran" [level=2] [ref=e731]
+                  - paragraph [ref=e732]: The UAE denied reports of the "alleged visit" and insisted relations between the two countries were not based on "unofficial arrangements".
+                  - generic [ref=e733]:
+                    - generic [ref=e734]: 12 hrs ago
+                    - generic: Middle East
+            - link "image unavailable Kevin Warsh, former governor of the US Federal Reserve, wearing sunglasses and smiling at the Allen & Co. Media and Technology Conference in Sun Valley, Idaho, US, on Wednesday, July 9, 2025. Trump's Fed chair pick Kevin Warsh confirmed by US Senate Kevin Warsh was confirmed by the narrowest margin since the role required a Senate confirmation vote. 14 hrs ago Business" [ref=e739] [cursor=pointer]:
+              - /url: /news/articles/ce8p71p4nezo
+              - generic [ref=e740]:
+                - generic [ref=e743]:
+                  - img "image unavailable" [ref=e744]
+                  - img "Kevin Warsh, former governor of the US Federal Reserve, wearing sunglasses and smiling at the Allen & Co. Media and Technology Conference in Sun Valley, Idaho, US, on Wednesday, July 9, 2025." [ref=e745]
+                - generic [ref=e746]:
+                  - heading "Trump's Fed chair pick Kevin Warsh confirmed by US Senate" [level=2] [ref=e749]
+                  - paragraph [ref=e750]: Kevin Warsh was confirmed by the narrowest margin since the role required a Senate confirmation vote.
+                  - generic [ref=e751]:
+                    - generic [ref=e752]: 14 hrs ago
+                    - generic: Business
+            - link "image unavailable File photo showing armed members of Hamas's military wing, the al-Qassam Brigades, near the so-called Yellow Line, in Gaza City (12 November 2025) Hamas can survive politically by giving up weapons and armed conflict, peace envoy says Nickolay Mladenov also warns the current stalemate over Donald Trump's peace plan could lead to a permanent division of the territory. 15 hrs ago Middle East" [ref=e757] [cursor=pointer]:
+              - /url: /news/articles/c3r248e977eo
+              - generic [ref=e758]:
+                - generic [ref=e761]:
+                  - img "image unavailable" [ref=e762]
+                  - img "File photo showing armed members of Hamas's military wing, the al-Qassam Brigades, near the so-called Yellow Line, in Gaza City (12 November 2025)" [ref=e763]
+                - generic [ref=e764]:
+                  - heading "Hamas can survive politically by giving up weapons and armed conflict, peace envoy says" [level=2] [ref=e767]
+                  - paragraph [ref=e768]: Nickolay Mladenov also warns the current stalemate over Donald Trump's peace plan could lead to a permanent division of the territory.
+                  - generic [ref=e769]:
+                    - generic [ref=e770]: 15 hrs ago
+                    - generic: Middle East
+        - generic [ref=e774]:
+          - generic [ref=e775]:
+            - separator [ref=e777]
+            - heading "Most read" [level=2] [ref=e780]
+          - generic [ref=e781]:
+            - link "1 US citizen convicted of running secret Chinese 'police station' in NYC" [ref=e784] [cursor=pointer]:
+              - /url: /news/articles/cy72yy7z1dyo
+              - generic [ref=e785]:
+                - generic [ref=e786]: "1"
+                - heading "US citizen convicted of running secret Chinese 'police station' in NYC" [level=2] [ref=e789]
+            - link "2 US drops $15,000 visa deposit for foreign fans with World Cup tickets" [ref=e792] [cursor=pointer]:
+              - /url: /news/articles/c392dj4xwy4o
+              - generic [ref=e793]:
+                - generic [ref=e794]: "2"
+                - heading "US drops $15,000 visa deposit for foreign fans with World Cup tickets" [level=2] [ref=e797]
+            - link "3 Israel's Eurovision entry 'shocked' by protests during semi-final show" [ref=e800] [cursor=pointer]:
+              - /url: /news/articles/ckgpjx4503zo
+              - generic [ref=e801]:
+                - generic [ref=e802]: "3"
+                - heading "Israel's Eurovision entry 'shocked' by protests during semi-final show" [level=2] [ref=e805]
+            - link "4 Warning higher Europe air fares 'inevitable' due to Iran war" [ref=e808] [cursor=pointer]:
+              - /url: /news/articles/clyprnelzxzo
+              - generic [ref=e809]:
+                - generic [ref=e810]: "4"
+                - heading "Warning higher Europe air fares 'inevitable' due to Iran war" [level=2] [ref=e813]
+            - link "5 A decade on, Trump returns to a stronger and more assertive China" [ref=e816] [cursor=pointer]:
+              - /url: /news/articles/cm2py6l78dxo
+              - generic [ref=e817]:
+                - generic [ref=e818]: "5"
+                - heading "A decade on, Trump returns to a stronger and more assertive China" [level=2] [ref=e821]
+            - link "6 Cuba has run out of diesel and oil, energy minister says" [ref=e824] [cursor=pointer]:
+              - /url: /news/articles/cd7pyrj0vx7o
+              - generic [ref=e825]:
+                - generic [ref=e826]: "6"
+                - heading "Cuba has run out of diesel and oil, energy minister says" [level=2] [ref=e829]
+            - link "7 Rat poison watermelon deaths puzzle Indian investigators" [ref=e832] [cursor=pointer]:
+              - /url: /news/articles/cwy2ryn2j3wo
+              - generic [ref=e833]:
+                - generic [ref=e834]: "7"
+                - heading "Rat poison watermelon deaths puzzle Indian investigators" [level=2] [ref=e837]
+            - link "8 Rescuers pull dead from rubble of Kyiv flats after massive Russian strikes" [ref=e840] [cursor=pointer]:
+              - /url: /news/articles/cq5p8yygq94o
+              - generic [ref=e841]:
+                - generic [ref=e842]: "8"
+                - heading "Rescuers pull dead from rubble of Kyiv flats after massive Russian strikes" [level=2] [ref=e845]
+            - link "9 Met to send 4,000 officers to police rival protests" [ref=e848] [cursor=pointer]:
+              - /url: /news/articles/c172n5e0prko
+              - generic [ref=e849]:
+                - generic [ref=e850]: "9"
+                - heading "Met to send 4,000 officers to police rival protests" [level=2] [ref=e853]
+            - link "10 US grief author who poisoned husband sentenced to life in prison" [ref=e856] [cursor=pointer]:
+              - /url: /news/articles/cq5p83edx9jo
+              - generic [ref=e857]:
+                - generic [ref=e858]: "10"
+                - heading "US grief author who poisoned husband sentenced to life in prison" [level=2] [ref=e861]
+        - generic [ref=e862]:
+          - generic [ref=e866]:
+            - separator [ref=e868]
+            - heading "Sport" [level=2] [ref=e871]
+          - generic [ref=e873]:
+            - generic [ref=e876]:
+              - link "image unavailable Motherwell's Sam Nicholson challenges for a high ball with his left arm raised towards his head - and is punished for handball" [ref=e880] [cursor=pointer]:
+                - /url: /sport/football/articles/c20211evnlvo
+                - generic [ref=e881]:
+                  - img "image unavailable" [ref=e882]
+                  - img "Motherwell's Sam Nicholson challenges for a high ball with his left arm raised towards his head - and is punished for handball" [ref=e883]
+              - link "Penalty for this? Celtic and Hearts face title decider as McInnes slams 'disgusting' call Hearts head coach Derek McInnes says his side are \"up against everybody\" after a \"disgusting\" 99th-minute penalty winner for Celtic ensured the Scottish Premiership title race goes to a final-day decider on Saturday. 11 hrs ago Scottish Prem" [ref=e887] [cursor=pointer]:
+                - /url: /sport/football/articles/c20211evnlvo
+                - generic [ref=e888]:
+                  - heading "Penalty for this? Celtic and Hearts face title decider as McInnes slams 'disgusting' call" [level=2] [ref=e891]
+                  - paragraph [ref=e892]: Hearts head coach Derek McInnes says his side are "up against everybody" after a "disgusting" 99th-minute penalty winner for Celtic ensured the Scottish Premiership title race goes to a final-day decider on Saturday.
+                  - generic [ref=e893]:
+                    - generic [ref=e894]: 11 hrs ago
+                    - generic: Scottish Prem
+            - generic [ref=e897]:
+              - 'link "image unavailable Mikel Arteta LIVE Arsenal news conference: ''No discussion'' about VAR decision - Arteta All the latest from this morning''s Premier League news conferences, including Mikel Arteta and Arne Slot." [ref=e901] [cursor=pointer]':
+                - /url: https://www.bbc.com/sport/football/live/cx21kgwjlxxt
+                - generic [ref=e902]:
+                  - generic [ref=e905]:
+                    - img "image unavailable" [ref=e906]
+                    - img "Mikel Arteta" [ref=e907]
+                  - generic [ref=e908]:
+                    - generic [ref=e910]:
+                      - generic [ref=e911]:
+                        - img [ref=e912]
+                        - generic [ref=e915]: LIVE
+                      - 'heading "Arsenal news conference: ''No discussion'' about VAR decision - Arteta" [level=2] [ref=e916]'
+                    - paragraph [ref=e917]: All the latest from this morning's Premier League news conferences, including Mikel Arteta and Arne Slot.
+              - link "Fifa risking player safety over heat at World Cup - scientists A group of world-leading scientists warn Fifa its current heat safety measures for the men's 2026 World Cup are \"inadequate\" and could put players at risk of serious harm. 5 hrs ago World Cup" [ref=e922] [cursor=pointer]:
+                - /url: /sport/football/articles/cy928q8engzo
+                - generic [ref=e924]:
+                  - heading "Fifa risking player safety over heat at World Cup - scientists" [level=2] [ref=e927]
+                  - paragraph [ref=e928]: A group of world-leading scientists warn Fifa its current heat safety measures for the men's 2026 World Cup are "inadequate" and could put players at risk of serious harm.
+                  - generic [ref=e929]:
+                    - generic [ref=e930]: 5 hrs ago
+                    - generic: World Cup
+              - link "Will F1 go back to the future with its engines? F1 is in the midst of two parallel sets of engine discussions. Andrew Benson looks at whether one of them will lead to the return of V8s. 3 hrs ago Formula 1" [ref=e935] [cursor=pointer]:
+                - /url: /sport/formula1/articles/c2e2zmglvp9o
+                - generic [ref=e937]:
+                  - heading "Will F1 go back to the future with its engines?" [level=2] [ref=e940]
+                  - paragraph [ref=e941]: F1 is in the midst of two parallel sets of engine discussions. Andrew Benson looks at whether one of them will lead to the return of V8s.
+                  - generic [ref=e942]:
+                    - generic [ref=e943]: 3 hrs ago
+                    - generic: Formula 1
+            - link "image unavailable Phil Foden Assist of the season? Mesmerising Foden keeps title hopes alive Phil Foden's magical first-half assist proves the catalyst that Manchester City needed to maintain their challenge in this season's fascinating Premier League title race. 11 hrs ago Man City" [ref=e948] [cursor=pointer]:
+              - /url: /sport/football/articles/cdxp0le9k1qo
+              - generic [ref=e949]:
+                - generic [ref=e952]:
+                  - img "image unavailable" [ref=e953]
+                  - img "Phil Foden" [ref=e954]
+                - generic [ref=e955]:
+                  - heading "Assist of the season? Mesmerising Foden keeps title hopes alive" [level=2] [ref=e958]
+                  - paragraph [ref=e959]: Phil Foden's magical first-half assist proves the catalyst that Manchester City needed to maintain their challenge in this season's fascinating Premier League title race.
+                  - generic [ref=e960]:
+                    - generic [ref=e961]: 11 hrs ago
+                    - generic: Man City
+            - link "image unavailable Rory McIlroy inspecting his injured toe while on the 18th fairway during Wednesday's practice round for the US PGA Championship McIlroy 'totally fine' for US PGA after toe issue World number two Rory McIlroy says using a \"bigger and wider shoe with more cushioning\" is helping deal with a sore little toe on his right foot. 15 hrs ago Golf" [ref=e966] [cursor=pointer]:
+              - /url: /sport/golf/articles/c33261711pyo
+              - generic [ref=e967]:
+                - generic [ref=e970]:
+                  - img "image unavailable" [ref=e971]
+                  - img "Rory McIlroy inspecting his injured toe while on the 18th fairway during Wednesday's practice round for the US PGA Championship" [ref=e972]
+                - generic [ref=e973]:
+                  - heading "McIlroy 'totally fine' for US PGA after toe issue" [level=2] [ref=e976]
+                  - paragraph [ref=e977]: World number two Rory McIlroy says using a "bigger and wider shoe with more cushioning" is helping deal with a sore little toe on his right foot.
+                  - generic [ref=e978]:
+                    - generic [ref=e979]: 15 hrs ago
+                    - generic: Golf
+            - link "image unavailable Paris St-Germain players and staff celebrate with the Ligue 1 trophy PSG win fifth straight Ligue 1 title Paris St-Germain are crowned Ligue 1 champions for a 14th time by beating title rivals Lens 2-0." [ref=e984] [cursor=pointer]:
+              - /url: https://www.bbc.com/sport/football/live/cvgzp135316t
+              - generic [ref=e985]:
+                - generic [ref=e988]:
+                  - img "image unavailable" [ref=e989]
+                  - img "Paris St-Germain players and staff celebrate with the Ligue 1 trophy" [ref=e990]
+                - generic [ref=e991]:
+                  - heading "PSG win fifth straight Ligue 1 title" [level=2] [ref=e994]
+                  - paragraph [ref=e995]: Paris St-Germain are crowned Ligue 1 champions for a 14th time by beating title rivals Lens 2-0.
+        - generic [ref=e1003]:
+          - link "image unavailable A collage of images and illustrations" [ref=e1007] [cursor=pointer]:
+            - /url: https://cloud.email.bbc.com/bbcnewsignup2?&at_bbc_team=studios&at_medium=display&at_objective=acquisition&at_ptr_type=&at_ptr_name=bbc.comhp&at_format=Module&at_link_origin=intlfront&at_campaign=newsbriefing&at_campaign_type=owned
+            - generic [ref=e1008]:
+              - img "image unavailable" [ref=e1009]
+              - img "A collage of images and illustrations" [ref=e1010]
+          - link "Sign up to News Briefing News and expert analysis for every schedule. Get morning and evening editions of our flagship newsletter in your inbox. Learn more" [ref=e1014] [cursor=pointer]:
+            - /url: https://cloud.email.bbc.com/bbcnewsignup2?&at_bbc_team=studios&at_medium=display&at_objective=acquisition&at_ptr_type=&at_ptr_name=bbc.comhp&at_format=Module&at_link_origin=intlfront&at_campaign=newsbriefing&at_campaign_type=owned
+            - generic [ref=e1015]:
+              - heading "Sign up to News Briefing" [level=2] [ref=e1019]
+              - generic [ref=e1020]: News and expert analysis for every schedule. Get morning and evening editions of our flagship newsletter in your inbox.
+              - generic "Learn more" [ref=e1022]: See more
+    - separator [ref=e1023]
+    - contentinfo [ref=e1024]:
+      - link "British Broadcasting Corporation" [ref=e1027] [cursor=pointer]:
+        - /url: /
+        - img "British Broadcasting Corporation" [ref=e1028]
+      - navigation "Footer navigation" [ref=e1031]:
+        - list [ref=e1032]:
+          - listitem [ref=e1033]:
+            - link "Home" [ref=e1035] [cursor=pointer]:
+              - /url: https://www.bbc.com/
+          - listitem [ref=e1036]:
+            - link "News" [ref=e1038] [cursor=pointer]:
+              - /url: /news
+          - listitem [ref=e1039]:
+            - link "Sport" [ref=e1041] [cursor=pointer]:
+              - /url: /sport
+          - listitem [ref=e1042]:
+            - link "Business" [ref=e1044] [cursor=pointer]:
+              - /url: /business
+          - listitem [ref=e1045]:
+            - link "Technology" [ref=e1047] [cursor=pointer]:
+              - /url: /technology
+          - listitem [ref=e1048]:
+            - link "Health" [ref=e1050] [cursor=pointer]:
+              - /url: /health
+          - listitem [ref=e1051]:
+            - link "Culture" [ref=e1053] [cursor=pointer]:
+              - /url: /culture
+          - listitem [ref=e1054]:
+            - link "Arts" [ref=e1056] [cursor=pointer]:
+              - /url: /arts
+          - listitem [ref=e1057]:
+            - link "Travel" [ref=e1059] [cursor=pointer]:
+              - /url: /travel
+          - listitem [ref=e1060]:
+            - link "Earth" [ref=e1062] [cursor=pointer]:
+              - /url: /future-planet
+          - listitem [ref=e1063]:
+            - link "Audio" [ref=e1065] [cursor=pointer]:
+              - /url: /audio
+          - listitem [ref=e1066]:
+            - link "Video" [ref=e1068] [cursor=pointer]:
+              - /url: /video
+          - listitem [ref=e1069]:
+            - link "Live" [ref=e1071] [cursor=pointer]:
+              - /url: /live
+          - listitem [ref=e1072]:
+            - link "Weather" [ref=e1074] [cursor=pointer]:
+              - /url: https://www.bbc.com/weather
+          - listitem [ref=e1075]:
+            - link "BBC Shop" [ref=e1077] [cursor=pointer]:
+              - /url: https://shop.bbc.com/
+          - listitem [ref=e1078]:
+            - link "BritBox" [ref=e1080] [cursor=pointer]:
+              - /url: https://www.britbox.com/?utm_source=bbc.com&utm_medium=referral&utm_campaign=footer
+      - button "BBC in other languages" [ref=e1083] [cursor=pointer]:
+        - text: BBC in other languages
+        - img [ref=e1085]
+      - generic [ref=e1087]:
+        - generic [ref=e1088]: "Follow BBC on:"
+        - generic [ref=e1089]:
+          - button "Follow BBC on x" [ref=e1090]:
+            - img [ref=e1091]
+          - button "Follow BBC on facebook" [ref=e1093]:
+            - img [ref=e1094]
+          - button "Follow BBC on instagram" [ref=e1096]:
+            - img [ref=e1097]
+          - button "Follow BBC on tiktok" [ref=e1099]:
+            - img [ref=e1100]
+          - button "Follow BBC on linkedin" [ref=e1102]:
+            - img [ref=e1103]
+          - button "Follow BBC on youtube" [ref=e1105]:
+            - img [ref=e1106]
+      - navigation [ref=e1109]:
+        - list [ref=e1110]:
+          - listitem [ref=e1111]:
+            - link "Terms of Use" [ref=e1113] [cursor=pointer]:
+              - /url: https://www.bbc.com/pages/terms-of-use
+          - listitem [ref=e1114]:
+            - link "Subscription Terms" [ref=e1116] [cursor=pointer]:
+              - /url: https://www.bbc.com/pages/subscription-terms
+          - listitem [ref=e1117]:
+            - link "About the BBC" [ref=e1119] [cursor=pointer]:
+              - /url: https://www.bbc.co.uk/aboutthebbc
+          - listitem [ref=e1120]:
+            - link "Privacy Policy" [ref=e1122] [cursor=pointer]:
+              - /url: https://www.bbc.com/pages/privacy-policy
+          - listitem [ref=e1123]:
+            - link "Cookies" [ref=e1125] [cursor=pointer]:
+              - /url: https://www.bbc.com/usingthebbc/cookies/
+          - listitem [ref=e1126]:
+            - link "Accessibility Help" [ref=e1128] [cursor=pointer]:
+              - /url: https://www.bbc.co.uk/accessibility/
+          - listitem [ref=e1129]:
+            - link "Contact the BBC" [ref=e1131] [cursor=pointer]:
+              - /url: https://www.bbc.co.uk/contact
+          - listitem [ref=e1132]:
+            - link "Advertise with us" [ref=e1134] [cursor=pointer]:
+              - /url: https://advertising.bbcstudios.com/
+          - listitem [ref=e1135]:
+            - link "Do not share or sell my info" [ref=e1137] [cursor=pointer]:
+              - /url: https://www.bbc.com/usingthebbc/cookies/how-can-i-change-my-bbc-cookie-settings/
+          - listitem [ref=e1138]:
+            - link "BBC.com Help & FAQs" [ref=e1140] [cursor=pointer]:
+              - /url: https://help.bbc.com/hc/
+          - listitem [ref=e1141]:
+            - link "Content Index" [ref=e1143] [cursor=pointer]:
+              - /url: https://www.bbc.com/pages/content-index
+          - listitem [ref=e1144]:
+            - link "Set Preferred Source" [ref=e1146] [cursor=pointer]:
+              - /url: https://www.bbc.com/future/article/20260128-how-to-make-google-put-trusted-sources-up-top-when-you-search
+      - generic [ref=e1147]:
+        - paragraph [ref=e1148]:
+          - text: Copyright 2026 BBC. All rights reserved. The BBC is not responsible for the content of external sites.
+          - link "Read about our approach to external linking." [ref=e1149] [cursor=pointer]:
+            - /url: https://www.bbc.com/editorialguidelines/guidance/links-and-feeds
+        - paragraph [ref=e1150]
+  - generic [ref=e1155]:
+    - heading "Let us know you agree to cookies" [level=2] [ref=e1156]
+    - generic [ref=e1157]:
+      - paragraph [ref=e1158]:
+        - text: We use
+        - link "cookies" [ref=e1159] [cursor=pointer]:
+          - /url: https://www.bbc.com/usingthebbc/cookies/what-do-i-need-to-know-about-cookies/
+        - text: to give you the best online experience.
+      - paragraph [ref=e1160]: Please let us know if you agree to all of these cookies.
+    - list [ref=e1161]:
+      - listitem [ref=e1162]:
+        - button "Yes, I agree" [ref=e1163] [cursor=pointer]
+      - listitem [ref=e1164]:
+        - link "No, take me to settings" [ref=e1165] [cursor=pointer]:
+          - /url: https://www.bbc.com/usingthebbc/cookies/how-can-i-change-my-bbc-cookie-settings/
+  - alert [ref=e1166]
+  - dialog "SP Consent Message" [ref=e1167]:
+    - iframe [active] [ref=e1168]:
+      - generic [ref=f4e6]:
+        - generic [ref=f4e8]:
+          - img "BBC Logo" [ref=f4e9]
+          - paragraph [ref=f4e10]: Let us know you agree to advertising cookies
+          - paragraph [ref=f4e11]:
+            - text: We and our 54 partners use cookies and similar technologies to collect and process personal data from your device, such as your IP address and the pages you visit.
+            - paragraph
+            - paragraph [ref=f4e12]
+            - paragraph [ref=f4e13]: We use this data to help us to better understand our audiences and to improve and personalise your experience. We also use this data to manage the advertising shown on our services. We make money from these ads, which in turn helps to fund our services and the creation of more BBC content.
+            - paragraph [ref=f4e14]
+            - paragraph [ref=f4e15]:
+              - strong [ref=f4e16]: "Please let us know if you agree to:"
+          - generic [ref=f4e18]:
+            - button "Store and/or access information on a device" [ref=f4e20] [cursor=pointer]: Store and/or access information on a device
+            - button "Personalised advertising and content, advertising and content measurement, audience research and services development" [ref=f4e23] [cursor=pointer]: Personalised advertising and content, advertising and content measurement, audience research and services development
+          - paragraph [ref=f4e25]:
+            - text: Click “Manage Options” to set your choice for specific purposes and to view the list of our
+            - link "partners" [ref=f4e26] [cursor=pointer]:
+              - /url: "#"
+            - text: . You can find out more on advertising cookies in our
+            - link "privacy policy" [ref=f4e27] [cursor=pointer]:
+              - /url: https://www.bbc.com/pages/privacy-policy
+            - text: . To change your preferences at any other time (including to withdraw consent or opt out of legitimate interest processing) by clicking on
+            - strong [ref=f4e28]: ‘Do not share or sell my info‘
+            - text: at the bottom of any page. Your choice only applies to BBC.com.
+        - generic [ref=f4e29]:
+          - button "I do not agree" [ref=f4e31] [cursor=pointer]
+          - button "I agree" [ref=f4e33] [cursor=pointer]
+        - button "Manage options" [ref=f4e36] [cursor=pointer]
