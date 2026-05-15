@@ -7,7 +7,7 @@ from mcp.server.fastmcp import FastMCP
 mcp = FastMCP(
     name="weather",
     host="0.0.0.0",  # only used for SSE transport (localhost)
-    port=8000,  # only used for SSE transport (set this to any port)
+    port=8050,  # only used for SSE transport (set this to any port)
 )
 
 # Constants
@@ -16,7 +16,7 @@ USER_AGENT = "weather-app/1.0"
 
 
 async def make_nws_request(url: str) -> dict[str, Any] | None:
-    """Make a request to the NWS API with proper error handling."""
+    # Make a request to the NWS API with proper error handling.
     headers = {
         "User-Agent": USER_AGENT,
         "Accept": "application/geo+json"
@@ -30,7 +30,7 @@ async def make_nws_request(url: str) -> dict[str, Any] | None:
             return None
 
 def format_alert(feature: dict) -> str:
-    """Format an alert feature into a readable string."""
+    # Format an alert feature into a readable string.
     props = feature["properties"]
     return f"""
     Event: {props.get('event', 'Unknown')}
