@@ -30,20 +30,28 @@ async def make_nws_request(url: str) -> dict[str, Any] | None:
         except Exception:
             return None
 
+MAX_ALERTS = 5
+MAX_DESC_CHARS = 200
+
+
 def format_alert(feature: dict) -> str:
-    # Format an alert feature into a readable string.
+    """Compact summary. Full text would flood the model's context."""
     props = feature["properties"]
-    return f"""
-    Event: {props.get('event', 'Unknown')}
-    Area: {props.get('areaDesc', 'Unknown')}
-    Severity: {props.get('severity', 'Unknown')}
-    Description: {props.get('description', 'No description available')}
-    Instructions: {props.get('instruction', 'No specific instructions provided')}
-    """
+    desc = (props.get("description") or "").strip().replace("\n", " ")
+    if len(desc) > MAX_DESC_CHARS:
+        desc = desc[:MAX_DESC_CHARS] + "..."
+    return (
+        f"{props.get('event', 'Unknown')} | "
+        f"{props.get('severity', 'Unknown')} | "
+        f"{(props.get('areaDesc') or 'Unknown')[:100]} | {desc}"
+    )
+
 
 @mcp.tool()
 async def get_alerts(state: str) -> str:
-    """Get weather alerts for a US state.
+    """Get active weather alerts for a US state.
+
+    Returns at most 5 alerts, most severe first, one per line.
 
     Args:
         state: Two-letter US state code (e.g. CA, NY)
@@ -53,12 +61,20 @@ async def get_alerts(state: str) -> str:
 
     if not data or "features" not in data:
         return "Unable to fetch alerts or no alerts found."
-
     if not data["features"]:
         return "No active alerts for this state."
 
-    alerts = [format_alert(feature) for feature in data["features"]]
-    return "\n---\n".join(alerts)
+    rank = {"Extreme": 0, "Severe": 1, "Moderate": 2, "Minor": 3}
+    features = sorted(
+        data["features"],
+        key=lambda f: rank.get(f["properties"].get("severity"), 9),
+    )
+
+    total = len(features)
+    lines = [format_alert(f) for f in features[:MAX_ALERTS]]
+    if total > MAX_ALERTS:
+        lines.append(f"({total - MAX_ALERTS} more alerts not shown)")
+    return "\n".join(lines)
 
 @mcp.tool()
 async def get_forecast(latitude: float, longitude: float) -> str:
