@@ -216,3 +216,13 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Playwright MCP output
+.playwright-mcp/
+
+# Playwright MCP page dumps
+.playwright-mcp/
+
+# Local data warehouse
+data/
+*.duckdb

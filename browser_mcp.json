@@ -1,27 +1,9 @@
 {
   "mcpServers": {
-    "airbnb": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@openbnb/mcp-server-airbnb"
-      ]
-    },
-    
-          "ddg-search": {
-              "command": "uvx",
-              "args": ["duckduckgo-mcp-server"]
-          }
-      ,
     "weather": {
       "command": "python",
-      "args": [
-        "server/weather.py"
-      ]
-    },
-    "my-docker-server": {
-      "url": "http://localhost:8050/sse"
+      "args": ["servers/weather/main.py"],
+      "env": { "MCP_TRANSPORT": "stdio" }
     }
   }
 }
-
