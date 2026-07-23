@@ -1,6 +1,7 @@
 from typing import Any
 import httpx
 from mcp.server.fastmcp import FastMCP
+import os
 
 
 # Create an MCP server
@@ -97,7 +98,7 @@ async def get_forecast(latitude: float, longitude: float) -> str:
 
 # Run the server
 if __name__ == "__main__":
-    transport = "sse"
+    transport = os.getenv("MCP_TRANSPORT", "stdio")
     if transport == "stdio":
         print("Running server with stdio transport")
         mcp.run(transport="stdio")

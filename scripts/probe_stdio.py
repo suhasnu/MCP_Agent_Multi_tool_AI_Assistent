@@ -7,7 +7,7 @@ async def main():
     # Define server parameters
     server_params = StdioServerParameters(
         command="python",  # The command to run your server
-        args=["server.py"],  # Arguments to the command
+        args=["servers/weather/main.py"],  # Arguments to the command
     )
 
     # Connect to the server
