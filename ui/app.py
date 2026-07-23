@@ -22,7 +22,7 @@ if not os.getenv("GROQ_API_KEY"):
 
 os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
 
-# --- 1. Initialize Agent in Session State ---
+# Initialize Agent in Session State
 # We do this so the agent and server connections don't reset on every single chat message
 async def init_agent():
     config_path = "browser_mcp.json"
@@ -45,7 +45,7 @@ if "agent" not in st.session_state:
         st.session_state.client = client
         st.session_state.messages = [] # For rendering the UI chat history
 
-# --- 2. Sidebar Configuration ---
+# 2. Sidebar Configuration
 with st.sidebar:
     st.title("🛠️ Active MCP Tools")
     
@@ -75,7 +75,7 @@ with st.sidebar:
         # 3. Reload the page
         st.rerun()
 
-# --- 3. Main Chat Interface ---
+# 3. Main Chat Interface
 st.title("💬 Interactive AI Dashboard")
 st.caption("Connected to local and Dockerized MCP tools")
 
