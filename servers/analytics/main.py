@@ -187,6 +187,11 @@ NULL rather than a sentinel value. In the monthly tables, `completeness` is the
 fraction of possible hourly readings actually recorded: filter on
 `completeness >= 0.8` before comparing months against each other.
 
+This warehouse holds only German weather observations: hourly temperature and
+humidity from a handful of stations. It has no data on stock prices, news,
+population or anything else. If a question cannot be answered from these
+tables, say so instead of querying.
+
 Use the exact table and column names below. Do not guess names."""
 
 

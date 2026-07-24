@@ -1,0 +1,154 @@
+- id: list_available_data
+  difficulty: easy
+  prompt: What weather data do you have available?
+  expect_tools: [list_tables]
+
+- id: station_count
+  difficulty: easy
+  # Was "how many stations are there", but list_tables already reports row
+  # counts, so answering without a query was correct and the scenario was
+  # wrong. Filtering by state forces a real query.
+  prompt: How many weather stations are located in Hessen?
+  expect_tools: [run_query]
+  gold_sql: SELECT count(*) AS n FROM gold_stations WHERE bundesland = 'Hessen' 
+
+- id: station_list
+  difficulty: easy
+  prompt: Which cities have weather stations in this dataset?
+  expect_tools: [run_query]
+  gold_sql: SELECT station_name FROM gold_stations ORDER BY station_name
+
+- id: warmest_bundesland_month
+  difficulty: easy
+  prompt: Which German federal state recorded the highest monthly average temperature?
+  expect_tools: [run_query]
+  gold_sql: |
+    SELECT bundesland
+    FROM gold_monthly_by_bundesland
+    ORDER BY avg_temp_c DESC
+    LIMIT 1
+
+- id: highest_station
+  difficulty: easy
+  prompt: Which weather station sits at the highest elevation?
+  expect_tools: [run_query]
+  gold_sql: SELECT station_name FROM gold_stations ORDER BY elevation_m DESC LIMIT 1
+
+- id: coldest_reading
+  difficulty: medium
+  prompt: What is the lowest temperature ever recorded in this dataset, and where?
+  expect_tools: [run_query]
+  gold_sql: |
+    SELECT station_name, min_temp_c
+    FROM gold_monthly_by_station
+    ORDER BY min_temp_c ASC
+    LIMIT 1
+
+- id: mean_temp_per_station
+  difficulty: medium
+  prompt: >
+    Using the monthly table, what is the average temperature for each station,
+    coldest first?
+  expect_tools: [run_query]
+  gold_sql: |
+    SELECT station_name, round(avg(avg_temp_c), 2) AS mean_temp
+    FROM gold_monthly_by_station
+    GROUP BY station_name
+    ORDER BY mean_temp ASC
+
+- id: completeness_filter
+  difficulty: medium
+  prompt: >
+    Which station-month had the highest average temperature, counting only
+    months with at least 80 percent data completeness?
+  expect_tools: [run_query]
+  gold_sql: |
+    SELECT station_name, year, month
+    FROM gold_monthly_by_station
+    WHERE completeness >= 0.8
+    ORDER BY avg_temp_c DESC
+    LIMIT 1
+
+- id: humidity_comparison
+  difficulty: medium
+  prompt: Compare average humidity across the federal states in the data.
+  expect_tools: [run_query]
+  gold_sql: |
+    SELECT bundesland, round(avg(avg_humidity_pct), 2) AS mean_humidity
+    FROM gold_monthly_by_bundesland
+    GROUP BY bundesland
+    ORDER BY mean_humidity DESC
+
+- id: temperature_range
+  difficulty: medium
+  prompt: Which station has the largest gap between its hottest and coldest recorded temperature?
+  expect_tools: [run_query]
+  gold_sql: |
+    SELECT station_name
+    FROM gold_monthly_by_station
+    GROUP BY station_name
+    ORDER BY max(max_temp_c) - min(min_temp_c) DESC
+    LIMIT 1
+
+- id: monthly_ranking
+  difficulty: hard
+  prompt: >
+    For each federal state, which single month was its warmest? Return the
+    state, the year and the month.
+  expect_tools: [run_query]
+  gold_sql: |
+    SELECT bundesland, year, month FROM (
+      SELECT bundesland, year, month,
+             row_number() OVER (PARTITION BY bundesland ORDER BY avg_temp_c DESC) AS rn
+      FROM gold_monthly_by_bundesland
+    ) WHERE rn = 1
+
+- id: above_average_months
+  difficulty: hard
+  prompt: >
+    How many station-months were warmer than the overall average across all
+    station-months?
+  expect_tools: [run_query]
+  gold_sql: |
+    SELECT count(*) AS n
+    FROM gold_monthly_by_station
+    WHERE avg_temp_c > (SELECT avg(avg_temp_c) FROM gold_monthly_by_station)
+
+- id: seasonal_swing
+  difficulty: hard
+  prompt: >
+    Which station shows the biggest difference between its warmest month average
+    and its coldest month average?
+  expect_tools: [run_query]
+  gold_sql: |
+    SELECT station_name
+    FROM gold_monthly_by_station
+    GROUP BY station_name
+    ORDER BY max(avg_temp_c) - min(avg_temp_c) DESC
+    LIMIT 1
+
+- id: ambiguous_best_weather
+  difficulty: hard
+  prompt: Which German city in the data has the nicest weather?
+  expect_tools: [run_query]
+  # No gold_sql: "nicest" is subjective. This scores tool selection only, and
+  # checks the agent queries rather than inventing an answer.
+
+- id: multi_step_comparison
+  difficulty: hard
+  prompt: >
+    Compare Berlin and Hamburg on average temperature, and mention whether any
+    of their months had poor data coverage.
+  expect_tools: [run_query]
+
+- id: no_tool_needed
+  difficulty: easy
+  prompt: What does the abbreviation MCP stand for in the context of AI tooling?
+  expect_tools: []
+
+- id: out_of_scope
+  difficulty: medium
+  prompt: What is the current stock price of Siemens?
+  expect_tools: []
+  # The warehouse cannot answer this. The agent should say so rather than
+  # querying something unrelated and dressing it up as an answer.
