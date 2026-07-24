@@ -1,8 +1,8 @@
 {
   "mcpServers": {
-    "weather": {
+    "analytics": {
       "command": "python",
-      "args": ["servers/weather/main.py"],
+      "args": ["-m", "servers.analytics.main"],
       "env": { "MCP_TRANSPORT": "stdio" }
     }
   }
