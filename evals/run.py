@@ -2,7 +2,12 @@
 
 Scores two things per scenario:
 
-  tool selection did the agent reach for the right tool execution match   does its SQL return the same rows as a hand-written query
+  tool selection    did the agent reach for the right tool
+  execution match   does its SQL return the same rows as a hand-written query
+
+Results are cached on disk by prompt hash, because the Groq free tier is 6000
+tokens per minute and a full rerun after editing one scenario would be wasteful.
+Delete evals/.cache to force a fresh run.
 
 Run:  python -m evals.run
       python -m evals.run --only warmest_bundesland_month
@@ -109,10 +114,14 @@ async def evaluate(scenario: dict, delay: float) -> dict:
             predicted_sql, scenario["gold_sql"], DB_PATH
         )
 
+    # A scenario that errored called no tools, which would otherwise score as
+    # a pass for any scenario expecting none. Never count an error as a pass.
+    tools_ok = (not error) and score_tools(called, expected)
+
     return {
         "id": scenario["id"],
         "difficulty": scenario.get("difficulty", "unknown"),
-        "tools_ok": score_tools(called, expected),
+        "tools_ok": tools_ok,
         "expected_tools": expected,
         "called_tools": called,
         "sql_ok": sql_ok,
@@ -130,15 +139,29 @@ async def evaluate(scenario: dict, delay: float) -> dict:
 def summarise(results: list[dict]) -> list[str]:
     lines = ["# Evaluation results", ""]
 
-    scored_sql = [r for r in results if r["sql_ok"] is not None]
-    tool_acc = sum(r["tools_ok"] for r in results) / len(results)
-    latencies = sorted(r["latency_ms"] for r in results)
+    errored = [r for r in results if r["error"]]
+    usable = [r for r in results if not r["error"]]
+
+    if not usable:
+        return [
+            "# Evaluation results",
+            "",
+            f"All {len(results)} scenarios errored. No accuracy can be reported.",
+            "",
+            f"First error: {errored[0]['error'][:200]}",
+            "",
+            "Check quota with: python scripts/check_quota.py",
+        ]
+
+    scored_sql = [r for r in usable if r["sql_ok"] is not None]
+    tool_acc = sum(r["tools_ok"] for r in usable) / len(usable)
+    latencies = sorted(r["latency_ms"] for r in usable)
     p50 = statistics.median(latencies)
     p95 = latencies[max(0, int(len(latencies) * 0.95) - 1)]
 
     lines += [
-        f"- Scenarios: {len(results)}",
-        f"- Tool-selection accuracy: {tool_acc:.0%}",
+        f"- Scenarios: {len(results)} ({len(errored)} errored, excluded below)",
+        f"- Tool-selection accuracy: {tool_acc:.0%} of {len(usable)} usable",
     ]
     if scored_sql:
         exact = sum(bool(r["sql_ok"]) for r in scored_sql)
@@ -162,7 +185,7 @@ def summarise(results: list[dict]) -> list[str]:
     ]
 
     for band in ("easy", "medium", "hard"):
-        group = [r for r in results if r["difficulty"] == band]
+        group = [r for r in usable if r["difficulty"] == band]
         if not group:
             continue
         t_acc = sum(r["tools_ok"] for r in group) / len(group)
@@ -200,7 +223,7 @@ def summarise(results: list[dict]) -> list[str]:
     # Detail only genuine failures. A query that scored exact-fail but
     # containment-pass answered the question with extra columns.
     failures = [
-        r for r in results
+        r for r in usable
         if not r["tools_ok"] or (r["sql_ok"] is False and not r.get("sql_contains"))
     ]
     if failures:
@@ -233,6 +256,7 @@ async def main_async(args) -> None:
         return
 
     results = []
+    consecutive_errors = 0
     for i, scenario in enumerate(scenarios, 1):
         cached = None if args.no_cache else load_cached(scenario)
         if cached:
@@ -242,8 +266,20 @@ async def main_async(args) -> None:
 
         print(f"[{i}/{len(scenarios)}] {scenario['id']}")
         result = await evaluate(scenario, args.delay)
-        save_cached(scenario, result)
+        if not result["error"]:
+            save_cached(scenario, result)
         results.append(result)
+
+        if result["error"]:
+            consecutive_errors += 1
+            if consecutive_errors >= 3:
+                print("\n3 scenarios failed in a row. Stopping instead of")
+                print("burning the rest against the same error:")
+                print(f"  {result['error'][:160]}")
+                print("\nCheck quota with: python scripts/check_quota.py")
+                break
+        else:
+            consecutive_errors = 0
 
         marks = "tools " + ("ok" if result["tools_ok"] else "FAIL")
         if result["sql_ok"] is not None:
