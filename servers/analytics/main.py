@@ -196,7 +196,8 @@ fraction of possible hourly readings actually recorded: filter on
 `completeness >= 0.8` before comparing months against each other.
 
 Prefer names over ids when reporting results: return station_name, not
-station_id.
+station_id. Round computed averages to one decimal place with round(x, 1);
+raw floats like 12.160526 read badly in an answer.
 
 This warehouse holds only German weather observations: hourly temperature and
 humidity from five stations. It has no data on stock prices, news, population,
