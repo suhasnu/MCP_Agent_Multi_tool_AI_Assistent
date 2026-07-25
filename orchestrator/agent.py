@@ -20,7 +20,7 @@ from orchestrator.tracing import Trace, ToolEvent, instrument
 
 CONFIG_PATH = Path(os.getenv("MCP_CONFIG", "browser_mcp.json"))
 DEFAULT_MODEL = os.getenv("GROQ_MODEL", "llama-3.1-8b-instant")
-MAX_STEPS = int(os.getenv("AGENT_MAX_STEPS", "8"))
+MAX_STEPS = int(os.getenv("AGENT_MAX_STEPS", "12"))
 
 
 async def noop_event(event: ToolEvent) -> None:

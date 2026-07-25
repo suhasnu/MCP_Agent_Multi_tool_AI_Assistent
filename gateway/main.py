@@ -5,6 +5,7 @@ state, which coupled the interface to the agent's lifecycle and forced async
 gymnastics inside a synchronous framework. Now the agent lives here, behind
 HTTP, and the UI is a thin client.
 
+
 Run:  uvicorn gateway.main:app --reload
       http://localhost:8000/docs
 """
@@ -81,8 +82,21 @@ async def _run_and_stream(message: str):
                     {"event": "answer", "data": json.dumps({"text": answer})}
                 )
             except Exception as exc:
+                raw = str(exc)
+                # The 8B sometimes keeps calling tools after it has the answer
+                # and trips the step cap. Translate the framework's raw graph
+                # error into something a user can act on.
+                if "recursion" in raw.lower() or "GRAPH_RECURSION" in raw:
+                    err_message = (
+                        "The agent took too many steps without settling on an "
+                        "answer. This happens on the smaller model with "
+                        "multi-part questions. Try rephrasing, or ask the two "
+                        "parts separately."
+                    )
+                else:
+                    err_message = raw[:500]
                 await queue.put(
-                    {"event": "error", "data": json.dumps({"message": str(exc)[:500]})}
+                    {"event": "error", "data": json.dumps({"message": err_message})}
                 )
             finally:
                 await queue.put(None)
