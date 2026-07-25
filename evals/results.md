@@ -1,78 +1,71 @@
 # Evaluation results
 
-- Scenarios: 17 (1 errored, excluded below)
-- Tool-selection accuracy: 94% of 16 usable
-- SQL exact match: 50% (6/12)
-- SQL containment: 67% (8/12) (correct answer, extra columns allowed)
-- p50 latency: 684.0 ms
-- p95 latency: 25,471 ms
-- Errors: 1
+- Scenarios: 17 (6 errored, excluded below)
+- Tool-selection accuracy: 91% of 11 usable
+- SQL exact match: 38% (3/8)
+- SQL containment: 50% (4/8) (correct answer, extra columns allowed)
+- p50 latency: 12,775 ms
+- p95 latency: 110,295 ms
+- Errors: 6
 
 ## By difficulty
 
 | Difficulty | Scenarios | Tool selection | Exact | Containment |
 |---|---|---|---|---|
-| easy | 5 | 100% | 75% | 100% |
-| medium | 6 | 83% | 40% | 60% |
-| hard | 5 | 100% | 33% | 33% |
+| easy | 4 | 75% | 67% | 67% |
+| medium | 3 | 100% | 0% | 0% |
+| hard | 4 | 100% | 50% | 100% |
 
 ## Per scenario
 
 | Scenario | Difficulty | Tools | Exact | Contains | Latency | Notes |
 |---|---|---|---|---|---|---|
-| list_available_data | easy | pass | n/a | n/a | 688 ms |  |
-| station_count | easy | pass | pass | pass | 536 ms |  |
-| station_list | easy | pass | pass | pass | 680 ms |  |
-| warmest_bundesland_month | easy | pass | fail | pass | 509 ms | matched with 1 extra column(s) |
-| highest_station | easy | pass | pass | pass | 521 ms |  |
-| coldest_reading | medium | pass | pass | pass | 17,143 ms |  |
-| mean_temp_per_station | medium | pass | fail | fail | 453 ms | 50 rows, expected 5 |
-| completeness_filter | medium | pass | fail | fail | 13,252 ms | no column subset reproduces the expected result |
-| humidity_comparison | medium | pass | pass | pass | 635 ms |  |
-| temperature_range | medium | pass | fail | pass | 578 ms | matched with 1 extra column(s) |
-| monthly_ranking | hard | pass | fail | fail | 1,132 ms | 50 rows, expected 5 |
-| above_average_months | hard | pass | pass | pass | 571 ms |  |
-| seasonal_swing | hard | pass | fail | fail | 78,017 ms | no column subset reproduces the expected result |
-| ambiguous_best_weather | hard | pass | n/a | n/a | 829 ms |  |
-| multi_step_comparison | hard | pass | n/a | n/a | 868 ms |  |
-| no_tool_needed | easy | fail | n/a | n/a | 304 ms | Error code: 400 - {'error': {'message': "tool call validation failed: attempted to call tool 'brave_search' which was no |
-| out_of_scope | medium | fail | n/a | n/a | 25,471 ms | called ['run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query'] |
+| list_available_data | easy | pass | n/a | n/a | 653 ms |  |
+| station_count | easy | pass | pass | pass | 493 ms |  |
+| station_list | easy | fail | fail | fail | 12,775 ms | no query was generated |
+| warmest_bundesland_month | easy | fail | pass | pass | 143,387 ms | Recursion limit of 30 reached without hitting a stop condition. You can increase the limit by setting the `recursion_lim |
+| highest_station | easy | pass | pass | pass | 440 ms |  |
+| coldest_reading | medium | pass | fail | fail | 21,342 ms | no column subset reproduces the expected result |
+| mean_temp_per_station | medium | fail | fail | fail | 201,028 ms | Recursion limit of 30 reached without hitting a stop condition. You can increase the limit by setting the `recursion_lim |
+| completeness_filter | medium | fail | fail | fail | 22,396 ms | Recursion limit of 30 reached without hitting a stop condition. You can increase the limit by setting the `recursion_lim |
+| humidity_comparison | medium | pass | fail | fail | 110,295 ms | 1 rows, expected 5 |
+| temperature_range | medium | pass | fail | fail | 52,125 ms | no column subset reproduces the expected result |
+| monthly_ranking | hard | fail | fail | fail | 203,146 ms | Recursion limit of 30 reached without hitting a stop condition. You can increase the limit by setting the `recursion_lim |
+| above_average_months | hard | pass | pass | pass | 597 ms |  |
+| seasonal_swing | hard | pass | fail | pass | 7,310 ms | matched with 1 extra column(s) |
+| ambiguous_best_weather | hard | pass | n/a | n/a | 55,289 ms |  |
+| multi_step_comparison | hard | pass | n/a | n/a | 122,414 ms |  |
+| no_tool_needed | easy | fail | n/a | n/a | 248 ms | Error code: 400 - {'error': {'message': "tool call validation failed: attempted to call tool 'brute_force_search' which  |
+| out_of_scope | medium | fail | n/a | n/a | 295 ms | Error code: 400 - {'error': {'message': "tool call validation failed: attempted to call tool 'brave_search' which was no |
 
 ## Failures in detail
 
-### mean_temp_per_station
+### station_list
 
-- SQL: shape (50, 2) != expected (5, 2)
+- Expected tools `['run_query']`, called `['list_tables', 'describe_schema']`
+- SQL: no query was generated
 
-```sql
-SELECT station_name, avg_temp_c FROM gold_monthly_by_station ORDER BY min_temp_c DESC LIMIT 50
-```
-
-### completeness_filter
+### coldest_reading
 
 - SQL: same shape, different values
 
 ```sql
-WITH ranked_months AS (SELECT station_id, year, month, avg_temp_c, completeness FROM gold_monthly_by_station WHERE completeness >= 0.8 ORDER BY avg_temp_c DESC) SELECT station_id, year, month FROM ranked_months LIMIT 1
+SELECT min_temp_c, station_name FROM gold_daily_by_station ORDER BY min_temp_c ASC LIMIT 1
 ```
 
-### monthly_ranking
+### humidity_comparison
 
-- SQL: shape (50, 3) != expected (5, 3)
+- SQL: shape (1, 2) != expected (5, 2)
 
 ```sql
-WITH monthly_max AS (SELECT bundesland, year, month, MAX(avg_temp_c) AS max_temp FROM gold_monthly_by_station GROUP BY bundesland, year, month) SELECT bundesland, year, month FROM monthly_max ORDER BY max_temp DESC LIMIT 50
+SELECT bundesland, avg(avg_humidity_pct) FROM gold_monthly_by_bundesland GROUP BY bundesland ORDER BY avg(avg_humidity_pct) DESC LIMIT 1
 ```
 
-### seasonal_swing
+### temperature_range
 
-- SQL: shape (1, 4) != expected (1, 1)
+- SQL: shape (1, 2) != expected (1, 1)
 
 ```sql
-SELECT station_name, max_temp_c, min_temp_c, max_temp_c - min_temp_c AS temp_diff FROM gold_monthly_by_station WHERE completeness >= 0.8 GROUP BY station_name, max_temp_c, min_temp_c ORDER BY temp_diff DESC LIMIT 1
+SELECT station_name, max_temp_c - min_temp_c AS temp_gap FROM gold_daily_by_station GROUP BY station_name, max_temp_c, min_temp_c ORDER BY temp_gap DESC LIMIT 1
 ```
-
-### out_of_scope
-
-- Expected tools `[]`, called `['run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query', 'run_query']`
 

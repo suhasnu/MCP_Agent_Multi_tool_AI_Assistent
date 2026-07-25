@@ -1,3 +1,4 @@
+
 - id: list_available_data
   difficulty: easy
   prompt: What weather data do you have available?
@@ -71,7 +72,9 @@
 
 - id: humidity_comparison
   difficulty: medium
-  prompt: Compare average humidity across the federal states in the data.
+  prompt: >
+    Using the by-Bundesland table, compare average humidity across the German
+    federal states.
   expect_tools: [run_query]
   gold_sql: |
     SELECT bundesland, round(avg(avg_humidity_pct), 2) AS mean_humidity

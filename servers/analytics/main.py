@@ -180,17 +180,28 @@ def describe_schema(table: str) -> str:
 QUERY_GUIDANCE = """Run a read-only SQL query against the German weather warehouse.
 
 Argument `sql`: a single DuckDB SELECT or WITH statement. No semicolons, no DDL.
-At most 50 rows are returned, so aggregate or add LIMIT for large results.
+
+Choosing between GROUP BY and LIMIT:
+- "the warmest state", "the highest station", "which month was coldest": a
+  superlative asking for ONE row. Order by the relevant column and end with
+  LIMIT 1. If the data is grouped, GROUP BY first, then ORDER BY, then LIMIT 1.
+- "the top three ...": ORDER BY then LIMIT 3.
+- "for each station ...", "compare the states", "list every ...": return one
+  row per group with GROUP BY and no LIMIT.
+Never add a LIMIT just to keep output small; long results are truncated for you.
 
 Temperatures are Celsius, humidity is a percentage, and missing readings are
 NULL rather than a sentinel value. In the monthly tables, `completeness` is the
 fraction of possible hourly readings actually recorded: filter on
 `completeness >= 0.8` before comparing months against each other.
 
+Prefer names over ids when reporting results: return station_name, not
+station_id.
+
 This warehouse holds only German weather observations: hourly temperature and
-humidity from a handful of stations. It has no data on stock prices, news,
-population or anything else. If a question cannot be answered from these
-tables, say so instead of querying.
+humidity from five stations. It has no data on stock prices, news, population,
+or anything outside German weather. If a question cannot be answered from these
+tables, do not call this tool at all. Reply that you do not have that data.
 
 Use the exact table and column names below. Do not guess names."""
 
