@@ -1,3 +1,10 @@
+"""Tool-call instrumentation.
+
+mcp-use converts each MCP tool into a LangChain BaseTool subclass whose async
+entry point is `_arun`, not the `.coroutine` attribute that plain
+StructuredTool uses. We wrap `_arun` so every invocation records a ToolEvent.
+"""
+
 import time
 import uuid
 from dataclasses import asdict, dataclass, field
@@ -71,4 +78,58 @@ def instrument(tool, trace: Trace, on_event: Callable[[ToolEvent], Awaitable[Non
 
     cls._arun = wrapped
     cls._is_instrumented = True
+    return tool
+
+
+class TraceSink:
+    """A retargetable destination for tool events.
+
+    instrument() binds a tool's class once. For a long-lived agent serving many
+    requests (the gateway), each request needs its own trace and callback
+    without re-patching the class. The tool is instrumented against a shared
+    sink, and the gateway swaps the sink's target per request.
+    """
+
+    def __init__(self) -> None:
+        self.trace = Trace()
+        self._on_event: Callable[[ToolEvent], Awaitable[None]] = _noop
+
+    def retarget(self, trace: Trace, on_event: Callable[[ToolEvent], Awaitable[None]]) -> None:
+        self.trace = trace
+        self._on_event = on_event
+
+    async def emit(self, event: ToolEvent) -> None:
+        self.trace.events.append(event)
+        await self._on_event(event)
+
+
+async def _noop(event: ToolEvent) -> None:
+    return None
+
+
+def instrument_to_sink(tool, sink: "TraceSink"):
+    """Instrument a tool so its events flow to a retargetable sink.
+
+    Unlike instrument(), which binds a fixed trace, this lets the caller change
+    the destination per request by calling sink.retarget().
+    """
+    cls = type(tool)
+    if getattr(cls, "_sink_instrumented", False):
+        return tool
+
+    original = cls._arun
+
+    async def wrapped(self, **kwargs):
+        started = time.perf_counter()
+        try:
+            result = await original(self, **kwargs)
+        except Exception as exc:
+            await sink.emit(_event(self.name, kwargs, started, ok=False, error=str(exc)))
+            raise
+        await sink.emit(_event(self.name, kwargs, started, ok=True, preview=str(result)[:300]))
+        return result
+
+    cls._arun = wrapped
+    cls._sink_instrumented = True
+    cls._sink = sink
     return tool

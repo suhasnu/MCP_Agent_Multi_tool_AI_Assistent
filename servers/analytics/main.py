@@ -88,6 +88,27 @@ def _run(con, sql: str) -> tuple[list[str], list[tuple]]:
     return columns, rows
 
 
+_STATION_NAME_CACHE: list[str] = []
+
+
+def _station_names() -> str:
+    """The actual station names, so an empty-result hint can name them.
+
+    The model guesses "Berlin" but the station is "Berlin-Tempelhof"; naming the
+    real values lets it recover instead of retrying the same failed filter.
+    """
+    if not _STATION_NAME_CACHE:
+        try:
+            con = _connect()
+            rows = con.execute(
+                "SELECT DISTINCT station_name FROM gold_stations ORDER BY 1"
+            ).fetchall()
+            _STATION_NAME_CACHE.extend(r[0] for r in rows)
+        except Exception:
+            return "(unavailable)"
+    return ", ".join(_STATION_NAME_CACHE)
+
+
 def _as_markdown(columns: list[str], rows: list[tuple]) -> str:
     """Render rows compactly, truncating wide cells."""
     truncated = len(rows) > MAX_ROWS
@@ -196,7 +217,11 @@ fraction of possible hourly readings actually recorded: filter on
 `completeness >= 0.8` before comparing months against each other.
 
 Prefer names over ids when reporting results: return station_name, not
-station_id.
+station_id. Round computed averages to one decimal place with round(x, 1);
+raw floats like 12.160526 read badly in an answer.
+
+Station names include the district, e.g. "Berlin-Tempelhof", not "Berlin". To
+find a station for a city, match with LIKE: WHERE station_name LIKE '%Berlin%'.
 
 This warehouse holds only German weather observations: hourly temperature and
 humidity from five stations. It has no data on stock prices, news, population,
@@ -253,7 +278,12 @@ def run_query(sql: str) -> str:
             return f"Query failed: {message}"
 
     if not rows:
-        return "Query returned no rows."
+        return (
+            "Query returned no rows. This usually means a filter did not match, "
+            "often an exact station or state name that differs from the data. "
+            "The station names are: " + _station_names() + ". "
+            "Check spelling, or use LIKE '%Berlin%' for a partial match."
+        )
     return _as_markdown(columns, rows)
 
 

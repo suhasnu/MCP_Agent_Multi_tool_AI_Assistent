@@ -4,6 +4,11 @@
       "command": "python",
       "args": ["-m", "servers.analytics.main"],
       "env": { "MCP_TRANSPORT": "stdio" }
+    },
+    "live_weather": {
+      "command": "python",
+      "args": ["-m", "servers.live_weather.main"],
+      "env": { "MCP_TRANSPORT": "stdio" }
     }
   }
 }
