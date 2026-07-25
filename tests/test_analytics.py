@@ -90,7 +90,9 @@ def test_run_query_returns_markdown(server):
 
 def test_empty_result_is_explained_not_blank(server):
     out = server.run_query("SELECT * FROM gold_monthly_by_bundesland WHERE year = 1800")
-    assert out == "Query returned no rows."
+    assert "no rows" in out
+    # the hint should name real stations so the model can recover
+    assert "station names are" in out.lower()
 
 
 # --- guard ---
