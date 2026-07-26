@@ -4,7 +4,7 @@
 ![Python](https://img.shields.io/badge/python-3.12-blue.svg)
 ![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)
 
-An LLM agent that answers questions about German weather by **writing its own SQL** against a data warehouse it queries live — and combines that with real-time conditions from a public API in a single answer.
+An LLM agent that answers questions about German weather by **writing its own SQL** against a data warehouse it queries live and combines that with real-time conditions from a public API in a single answer.
 
 Most Model Context Protocol demos are a chat box wired to someone else's API. This one has two halves that meet in the middle: a full ETL pipeline that turns raw weather-service archives into a queryable warehouse, and an agent that queries it. The join between them is *measured*, not assumed.
 
@@ -21,27 +21,40 @@ Every tool call is shown live in the interface, with its arguments and latency:
 
 - **Generates SQL from natural language** against a DuckDB warehouse of German weather observations.
 - **Fetches live weather worldwide** via Open-Meteo (no API key) and reasons across live + historical data in one response.
-- **Shows its work** — every tool call, with arguments and latency, streams to the interface as it happens.
-- **Measures itself** — an evaluation harness scores tool selection and SQL accuracy across graded scenarios.
+- **Shows its work** every tool call, with arguments and latency, streams to the interface as it happens.
+- **Measures itself** an evaluation harness scores tool selection and SQL accuracy across graded scenarios.
 
 ## Architecture
 
 ```
-                    GitHub Actions (nightly)
-                             |
-   DWD archives  ->  ETL pipeline  ->  DuckDB warehouse
-                    (bronze/silver/gold)      |
-                                        Analytics MCP server ---+
-                                                                |
-   Streamlit UI  --HTTP/SSE-->  FastAPI gateway  ->  Agent  ----+
-                                        |                       |
-                                   Trace store          Live-weather MCP server
+BUILD PATH  (offline, scheduled via GitHub Actions)
+  ┌─────────────┐   ┌──────────────────────────────┐   ┌───────────────┐
+  │ DWD station │──▶│  ETL pipeline                │──▶│  quality gate │
+  │  archives   │   │  ingest → bronze → silver →  │   │  (14 checks)  │
+  └─────────────┘   │  gold                        │   └───────┬───────┘
+                    └──────────────────────────────┘           │ pass
+                                                                ▼
+                                                        ┌───────────────┐
+                                                        │    DuckDB     │
+                                                        │   warehouse   │
+                                                        └───────┬───────┘
+                                                                │
+  SERVE PATH  (real time)                                       │ reads
+  ┌──────────┐   ┌───────────────┐   ┌──────────────┐   ┌───────▼──────────┐
+  │  User /  │──▶│  FastAPI      │──▶│  MCP agent   │──▶│ analytics server │
+  │ Streamlit│◀──│  gateway      │◀──│ Gemini/Groq  │   │  read-only SQL   │
+  │    UI    │   │  (HTTP + SSE) │   └──────┬───────┘   └──────────────────┘
+  └──────────┘   └───────────────┘          │
+                                            │  ┌──────────────────┐   ┌─────────────┐
+                                            └─▶│ live-weather srv │──▶│ Open-Meteo  │
+                                               │   (worldwide)    │   │     API     │
+                                               └──────────────────┘   └─────────────┘
 ```
 
-- **Data pipeline** — Deutscher Wetterdienst (DWD) station archives are ingested through a medallion architecture: `bronze` lands raw text with provenance, `silver` types and cleans it, `gold` aggregates it. A 14-check quality gate fails the build on bad data.
-- **MCP servers** — the agent reaches the warehouse through a custom [Model Context Protocol](https://modelcontextprotocol.io) server that enforces read-only SQL at the DuckDB engine, not by string matching. A second MCP server provides worldwide live weather.
-- **Gateway** — a FastAPI service owns the agent and streams tool events and the answer over Server-Sent Events. The Streamlit UI is a thin client holding no agent state.
-- **Provider-agnostic** — the model layer switches between Google Gemini and Groq with one environment variable.
+- **Data pipeline** Deutscher Wetterdienst (DWD) station archives are ingested through a medallion architecture: `bronze` lands raw text with provenance, `silver` types and cleans it, `gold` aggregates it. A 14-check quality gate fails the build on bad data.
+- **MCP servers** the agent reaches the warehouse through a custom [Model Context Protocol](https://modelcontextprotocol.io) server that enforces read-only SQL at the DuckDB engine, not by string matching. A second MCP server provides worldwide live weather.
+- **Gateway** a FastAPI service owns the agent and streams tool events and the answer over Server-Sent Events. The Streamlit UI is a thin client holding no agent state.
+- **Provider-agnostic** the model layer switches between Google Gemini and Groq with one environment variable.
 
 The gateway's auto-generated OpenAPI docs, and the raw SSE stream a request produces:
 
@@ -88,16 +101,16 @@ Downloads are ETag-cached, so a re-run re-checks every station but downloads onl
 
 `python -m evals.run` scores 17 scenarios on two metrics:
 
-- **Tool-selection accuracy** — did the agent reach for the right tool? (~94%)
-- **SQL execution accuracy** — does the generated query return the same rows as a hand-written gold query? (the Spider/BIRD result-set metric)
+- **Tool-selection accuracy**  did the agent reach for the right tool? (~94%)
+- **SQL execution accuracy**  does the generated query return the same rows as a hand-written gold query? (the Spider/BIRD result-set metric)
 
 Scenarios are graded easy/medium/hard, and results are cached by prompt hash to respect free-tier rate limits.
 
-The harness earned its keep. The first run scored 33% exact-match, but reading the failures showed most were the model returning a *correct* answer with an extra column, alongside a prompt bug that copied `LIMIT 50` into queries. That led to adding a containment metric and fixing the prompt — exactly the kind of diagnosis the harness exists to enable. On hard, multi-step queries the dominant limit is model consistency rather than prompt quality, and the harness separates those genuine errors from over-strict scoring cleanly.
+The harness earned its keep. The first run scored 33% exact-match, but reading the failures showed most were the model returning a *correct* answer with an extra column, alongside a prompt bug that copied `LIMIT 50` into queries. That led to adding a containment metric and fixing the prompt exactly the kind of diagnosis the harness exists to enable. On hard, multi-step queries the dominant limit is model consistency rather than prompt quality, and the harness separates those genuine errors from over-strict scoring cleanly.
 
 ## Testing
 
-98 test functions (114 cases with parametrization), with no network or API keys required — external HTTP is mocked and the agent is faked, so the suite runs anywhere. CI runs the suite and `ruff` on every push via GitHub Actions.
+98 test functions (114 cases with parametrization), with no network or API keys required external HTTP is mocked and the agent is faked, so the suite runs anywhere. CI runs the suite and `ruff` on every push via GitHub Actions.
 
 ```bash
 pytest -q
