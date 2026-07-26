@@ -1,0 +1,30 @@
+# Ruff configuration.
+#
+# The ignored rules are deliberate patterns in this codebase, not laziness:
+#   BLE001  blind except: tool functions catch everything and return a readable
+#           message to the model rather than crashing the agent loop. That is
+#           the intended behaviour, documented at each site.
+#   S112    try/except/continue: the ingest loop skips a bad station and keeps
+#           going, which is correct for a batch pipeline.
+#   B017    assert raises Exception: a test asserts the read-only DB rejects a
+#           write, and the exact exception type is an implementation detail.
+#   DTZ005  naive datetime: the CLI stamps a local date into the prompt; a
+#           timezone would be noise.
+#   SIM117, ISC004, RUF059: stylistic, not worth churning working code.
+
+line-length = 100
+
+[lint]
+select = ["E", "F", "W", "I", "B", "C4", "UP"]
+ignore = [
+    "BLE001",
+    "S112",
+    "B017",
+    "B905",
+    "DTZ005",
+    "SIM117",
+    "ISC004",
+    "RUF059",
+    "E402",
+    "E501",
+]

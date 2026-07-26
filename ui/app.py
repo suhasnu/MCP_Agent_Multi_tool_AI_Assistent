@@ -78,7 +78,7 @@ with st.sidebar:
             st.caption(t["description"])
     else:
         st.error("Gateway not reachable")
-        st.caption(f"Start it with:\n\n`uvicorn gateway.main:app`")
+        st.caption("Start it with:\n\n`uvicorn gateway.main:app`")
         st.caption(f"Expected at {GATEWAY}")
 
     st.divider()

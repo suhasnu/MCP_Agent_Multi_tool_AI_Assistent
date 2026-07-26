@@ -171,7 +171,7 @@ def test_nulls_render_as_empty_cells(server):
 
 
 def test_wide_cells_are_truncated(server):
-    out = server.run_query(f"SELECT repeat('x', 500) AS wide")
+    out = server.run_query("SELECT repeat('x', 500) AS wide")
     longest = max(len(line) for line in out.splitlines())
     assert longest < server.MAX_CELL_CHARS + 20
 

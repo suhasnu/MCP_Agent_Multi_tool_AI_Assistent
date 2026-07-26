@@ -5,7 +5,6 @@ servers. They assert the streaming contract: tool events arrive during the run,
 the answer arrives after, and the stream terminates.
 """
 
-import asyncio
 import json
 
 import httpx

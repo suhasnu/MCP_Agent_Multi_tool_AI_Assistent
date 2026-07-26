@@ -3,7 +3,6 @@
 Written against the real archive structure, confirmed by scripts/explore_dwd.py:
 """
 
-import io
 import re
 import zipfile
 from dataclasses import dataclass

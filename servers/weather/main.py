@@ -1,8 +1,8 @@
+import os
 from typing import Any
+
 import httpx
 from mcp.server.fastmcp import FastMCP
-import os
-
 
 # Create an MCP server
 mcp = FastMCP(

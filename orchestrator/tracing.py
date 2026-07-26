@@ -7,8 +7,9 @@ StructuredTool uses. We wrap `_arun` so every invocation records a ToolEvent.
 
 import time
 import uuid
+from collections.abc import Awaitable, Callable
 from dataclasses import asdict, dataclass, field
-from typing import Any, Awaitable, Callable
+from typing import Any
 
 
 @dataclass
