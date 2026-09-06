@@ -11,7 +11,7 @@ Most Model Context Protocol demos are a chat box wired to someone else's API. Th
 ![The agent answering a live-plus-historical question](docs/demo.png)
 
 > **Asked:** *"What is the weather in Berlin right now, and how does it compare to Berlin's average June temperature in the data?"*
-> The agent calls a live weather API **and** writes SQL against the historical warehouse, then answers from both — noting that current conditions are 5.1 °C warmer than the June average recorded at the Berlin-Tempelhof station.
+> The agent calls a live weather API **and** writes SQL against the historical warehouse, then answers from both, noting that current conditions are 5.1 °C warmer than the June average recorded at the Berlin-Tempelhof station.
 
 Every tool call is shown live in the interface, with its arguments and latency:
 
