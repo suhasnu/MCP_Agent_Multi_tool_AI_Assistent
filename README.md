@@ -62,6 +62,34 @@ The gateway's auto-generated OpenAPI docs, and the raw SSE stream a request prod
 
 ![Server-Sent Events stream: tool, then answer, then done](docs/sse.png)
 
+## Where this sits in the AI engineering stack
+
+Chip Huyen's *AI Engineering* (ch. 1) splits the work into three layers: **application development**, **model development**, and **infrastructure**. Mapping this repository onto them is a useful exercise, because it shows which parts of the system are AI engineering and which are ordinary data or full-stack work wearing an AI label.
+
+| Component | Layer | What kind of engineering it actually is |
+|---|---|---|
+| Streamlit UI | Application development | Full-stack. A thin client that holds no agent state. |
+| FastAPI gateway (HTTP + SSE) | Application development, spilling into infrastructure | Full-stack and serving. It owns the agent and streams events, but nothing about it is AI-specific. |
+| MCP servers and their tool definitions (analytics, live weather) | Application development | **AI engineering.** This is context construction: the tool inventory is the entire surface the model can see and act through, so its shape determines what the agent can do. |
+| Agent prompt and tool-selection behaviour | Application development | **AI engineering.** Prompt-based adaptation, which is the lever available when you do not own the weights. |
+| Provider switch between Gemini and Groq | Model development, at its boundary | **AI engineering**, but model *selection*, not model development. Nothing here is trained, finetuned, or distilled. |
+| DWD ETL pipeline: ingest, bronze, silver, gold | Infrastructure | Classical data engineering. The medallion split and the Bundesland weighting decision are data modelling choices, not AI ones. |
+| 14-check quality gate | Infrastructure | Classical data quality engineering. |
+| DuckDB warehouse with read-only SQL enforced at the engine | Infrastructure | Data management, plus a security control placed at the layer that can actually enforce it rather than in a prompt. |
+| ETag download caching, prompt-hash result caching | Infrastructure | Classical caching. |
+| pytest suite (98 functions), ruff, GitHub Actions CI | Infrastructure | Classical software engineering. |
+| Evaluation harness (17 graded scenarios, tool-selection and SQL execution accuracy) | Spans all three, currently weighted to application | **AI engineering.** See the note below. |
+
+### The model development layer is deliberately empty
+
+No model is trained, finetuned, quantized, or served from local weights in this project. Gemini and Groq are called over an API. That is not a gap to apologise for, it is the shift the book describes: the foundation model arrives ready-made, so the work moves out of modelling and training and into adaptation, context, and evaluation. The consequence is that inference cost and latency are runtime concerns here rather than one-off training costs, which is why every tool call is timed and surfaced in the interface.
+
+### Evaluation does not belong to one layer
+
+A wrong answer from this agent can originate in any of the three layers and looks identical from the outside. Bad generated SQL may come from the context the agent was given (application), from the model being unable to handle that query shape at all (model), or from a truncated stream, a timeout, or stale gold tables (infrastructure). End-to-end scoring alone cannot tell these apart. That is exactly what the first evaluation run demonstrated: a 33% exact-match score that turned out to be an over-strict metric plus a prompt bug rather than a model failure.
+
+The harness currently scores tool selection and SQL execution accuracy end to end. Per-layer attribution, and an explicit written guideline defining what a correct answer is, are known gaps rather than solved problems.
+
 ## Quickstart
 
 ```bash
