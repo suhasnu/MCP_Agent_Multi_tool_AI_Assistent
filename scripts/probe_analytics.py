@@ -34,7 +34,7 @@ async def step(label: str, coro):
         result = await asyncio.wait_for(coro, timeout=STEP_TIMEOUT)
         print("  ok")
         return result
-    except asyncio.TimeoutError:
+    except TimeoutError:
         print(f"  HUNG: no response within {STEP_TIMEOUT}s")
         raise
     except Exception as exc:
@@ -91,7 +91,7 @@ async def main_async() -> None:
 def main() -> None:
     try:
         asyncio.run(main_async())
-    except (asyncio.TimeoutError, Exception) as exc:
+    except (TimeoutError, Exception) as exc:
         print(f"\nStopped: {type(exc).__name__}")
         print("The step marked HUNG or FAILED above is where to look.")
         sys.exit(1)
